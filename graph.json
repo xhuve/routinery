@@ -1,0 +1,1021 @@
+{
+  "nodes": {
+    "28991136": {
+      "id": "28991136",
+      "label": "WorkoutModule",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "WorkoutModule",
+        "initTime": 197.72699999999986
+      }
+    },
+    "203550704": {
+      "id": "203550704",
+      "label": "ExternalContextCreator",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ExternalContextCreator",
+        "initTime": 198.0010000000002
+      }
+    },
+    "225063248": {
+      "id": "225063248",
+      "label": "InternalCoreModule",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "InternalCoreModule",
+        "initTime": 198.9086000000002
+      }
+    },
+    "233936880": {
+      "id": "233936880",
+      "label": "AppController",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AppController",
+        "initTime": 2.584100000000035
+      }
+    },
+    "266839889": {
+      "id": "266839889",
+      "label": "EntityManager",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "EntityManager"
+      }
+    },
+    "357226364": {
+      "id": "357226364",
+      "label": "WorkoutModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "545846241": {
+      "id": "545846241",
+      "label": "TypeOrmModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "555176277": {
+      "id": "555176277",
+      "label": "InternalCoreModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": true
+      }
+    },
+    "603011239": {
+      "id": "603011239",
+      "label": "UsersService",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "UsersService"
+      }
+    },
+    "671882984": {
+      "id": "671882984",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 198.69749999999976
+      }
+    },
+    "687352615": {
+      "id": "687352615",
+      "label": "ModuleRef",
+      "parent": "545846241",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "731684192": {
+      "id": "731684192",
+      "label": "TypeOrmCoreModule",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "TypeOrmCoreModule",
+        "initTime": 198.23639999999978
+      }
+    },
+    "958813194": {
+      "id": "958813194",
+      "label": "ParseIntPipe",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ParseIntPipe",
+        "subtype": "pipe"
+      }
+    },
+    "1051939025": {
+      "id": "1051939025",
+      "label": "WorkoutService",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "WorkoutService",
+        "initTime": 197.69479999999976
+      }
+    },
+    "1424580599": {
+      "id": "1424580599",
+      "label": "ApplicationConfig",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1434456218": {
+      "id": "1434456218",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 201.85370000000012
+      }
+    },
+    "1475573941": {
+      "id": "1475573941",
+      "label": "ModuleRef",
+      "parent": "-2135742481",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "1529900285": {
+      "id": "1529900285",
+      "label": "Connection",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": true,
+        "token": "Connection"
+      }
+    },
+    "1817334964": {
+      "id": "1817334964",
+      "label": "ModuleRef",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "1919157847": {
+      "id": "1919157847",
+      "label": "REQUEST",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": false,
+        "scope": 2,
+        "transient": false,
+        "exported": true,
+        "token": "REQUEST",
+        "initTime": 163.13189999999986
+      }
+    },
+    "2075644217": {
+      "id": "2075644217",
+      "label": "TypeOrmModuleOptions",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "TypeOrmModuleOptions"
+      }
+    },
+    "-1486320561": {
+      "id": "-1486320561",
+      "label": "ModuleRef",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-651043398": {
+      "id": "-651043398",
+      "label": "ApplicationConfig",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-255469305": {
+      "id": "-255469305",
+      "label": "INQUIRER",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 1,
+        "transient": true,
+        "exported": true,
+        "token": "INQUIRER",
+        "initTime": 163.1223
+      }
+    },
+    "-26938366": {
+      "id": "-26938366",
+      "label": "ModulesContainer",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ModulesContainer",
+        "initTime": 197.9980999999998
+      }
+    },
+    "-326832201": {
+      "id": "-326832201",
+      "label": "HttpAdapterHost",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "HttpAdapterHost",
+        "initTime": 197.98390000000018
+      }
+    },
+    "-702581189": {
+      "id": "-702581189",
+      "label": "LazyModuleLoader",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "LazyModuleLoader",
+        "initTime": 197.98070000000007
+      }
+    },
+    "-1904419534": {
+      "id": "-1904419534",
+      "label": "SerializedGraph",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "SerializedGraph",
+        "initTime": 197.9602
+      }
+    },
+    "-19112576": {
+      "id": "-19112576",
+      "label": "AppModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-2139588960": {
+      "id": "-2139588960",
+      "label": "AppModule",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "AppModule",
+        "initTime": 197.96529999999984
+      }
+    },
+    "-71302842": {
+      "id": "-71302842",
+      "label": "ModuleRef",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-2064622725": {
+      "id": "-2064622725",
+      "label": "ApplicationConfig",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-2130614055": {
+      "id": "-2130614055",
+      "label": "AppService",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AppService",
+        "initTime": 197.93409999999994
+      }
+    },
+    "-326424510": {
+      "id": "-326424510",
+      "label": "ModuleRef",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-2135742481": {
+      "id": "-2135742481",
+      "label": "TypeOrmModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-1872891520": {
+      "id": "-1872891520",
+      "label": "TypeOrmModule",
+      "parent": "-2135742481",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "TypeOrmModule",
+        "initTime": 197.69810000000007
+      }
+    },
+    "-1068388246": {
+      "id": "-1068388246",
+      "label": "ApplicationConfig",
+      "parent": "-2135742481",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1026304274": {
+      "id": "-1026304274",
+      "label": "TypeOrmCoreModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-2035045911": {
+      "id": "-2035045911",
+      "label": "ApplicationConfig",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-2103415210": {
+      "id": "-2103415210",
+      "label": "DataSource",
+      "parent": "-1026304274",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "TypeOrmCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "DataSource"
+      }
+    },
+    "-2003726489": {
+      "id": "-2003726489",
+      "label": "UsersModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-495603840": {
+      "id": "-495603840",
+      "label": "UsersModule",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "UsersModule",
+        "initTime": 197.3801000000003
+      }
+    },
+    "-618964563": {
+      "id": "-618964563",
+      "label": "ModuleRef",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-643958110": {
+      "id": "-643958110",
+      "label": "ApplicationConfig",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1102473136": {
+      "id": "-1102473136",
+      "label": "UsersController",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "UsersController",
+        "enhancers": [
+          {
+            "id": "958813194",
+            "methodKey": "updateUserById",
+            "subtype": "pipe"
+          },
+          {
+            "id": "958813194",
+            "methodKey": "deleteByUserId",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-257450702": {
+      "id": "-257450702",
+      "label": "TypeOrmModule",
+      "parent": "545846241",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "TypeOrmModule",
+        "initTime": 196.7550000000001
+      }
+    },
+    "-223917668": {
+      "id": "-223917668",
+      "label": "ApplicationConfig",
+      "parent": "545846241",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1488832441": {
+      "id": "-1488832441",
+      "label": "UserRepository",
+      "parent": "545846241",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "TypeOrmModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "UserRepository"
+      }
+    }
+  },
+  "edges": {
+    "43962647": {
+      "source": "-2003726489",
+      "target": "-1026304274",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "TypeOrmCoreModule"
+      },
+      "id": "43962647"
+    },
+    "172420593": {
+      "source": "-1102473136",
+      "target": "958813194",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "172420593"
+    },
+    "189694679": {
+      "source": "1434456218",
+      "target": "671882984",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "InternalCoreModule",
+        "sourceClassName": "Reflector",
+        "targetClassName": "Reflector",
+        "sourceClassToken": "Reflector",
+        "targetClassToken": "Reflector",
+        "targetModuleName": "InternalCoreModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor",
+        "internal": true
+      },
+      "id": "189694679"
+    },
+    "639184627": {
+      "source": "-2003726489",
+      "target": "545846241",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "TypeOrmModule"
+      },
+      "id": "639184627"
+    },
+    "987755577": {
+      "source": "-2003726489",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "987755577"
+    },
+    "1010561902": {
+      "source": "545846241",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "TypeOrmModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1010561902"
+    },
+    "1056428433": {
+      "source": "-19112576",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1056428433"
+    },
+    "1318898112": {
+      "source": "-19112576",
+      "target": "-2135742481",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "TypeOrmModule"
+      },
+      "id": "1318898112"
+    },
+    "1346890576": {
+      "source": "233936880",
+      "target": "-2130614055",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "AppModule",
+        "sourceClassName": "AppController",
+        "targetClassName": "AppService",
+        "sourceClassToken": "AppController",
+        "targetClassToken": "AppService",
+        "targetModuleName": "AppModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1346890576"
+    },
+    "1454288893": {
+      "source": "-2135742481",
+      "target": "-1026304274",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "TypeOrmModule",
+        "targetModuleName": "TypeOrmCoreModule"
+      },
+      "id": "1454288893"
+    },
+    "1635338963": {
+      "source": "-2135742481",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "TypeOrmModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1635338963"
+    },
+    "-1537161641": {
+      "source": "731684192",
+      "target": "2075644217",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "TypeOrmCoreModule",
+        "sourceClassName": "TypeOrmCoreModule",
+        "targetClassName": "TypeOrmModuleOptions",
+        "sourceClassToken": "TypeOrmCoreModule",
+        "targetClassToken": "TypeOrmModuleOptions",
+        "targetModuleName": "TypeOrmCoreModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-1537161641"
+    },
+    "-1463782886": {
+      "source": "731684192",
+      "target": "1817334964",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "TypeOrmCoreModule",
+        "sourceClassName": "TypeOrmCoreModule",
+        "targetClassName": "ModuleRef",
+        "sourceClassToken": "TypeOrmCoreModule",
+        "targetClassToken": "ModuleRef",
+        "targetModuleName": "TypeOrmCoreModule",
+        "keyOrIndex": 1,
+        "injectionType": "constructor",
+        "internal": true
+      },
+      "id": "-1463782886"
+    },
+    "-1650541783": {
+      "source": "-19112576",
+      "target": "357226364",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "WorkoutModule"
+      },
+      "id": "-1650541783"
+    },
+    "-158970266": {
+      "source": "-19112576",
+      "target": "-2003726489",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "UsersModule"
+      },
+      "id": "-158970266"
+    },
+    "-495517505": {
+      "source": "-19112576",
+      "target": "-1026304274",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "TypeOrmCoreModule"
+      },
+      "id": "-495517505"
+    },
+    "-1715904324": {
+      "source": "357226364",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1715904324"
+    },
+    "-1334839692": {
+      "source": "357226364",
+      "target": "-1026304274",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "TypeOrmCoreModule"
+      },
+      "id": "-1334839692"
+    },
+    "-485008942": {
+      "source": "-1026304274",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "TypeOrmCoreModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-485008942"
+    },
+    "-733930814": {
+      "source": "545846241",
+      "target": "-1026304274",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "TypeOrmModule",
+        "targetModuleName": "TypeOrmCoreModule"
+      },
+      "id": "-733930814"
+    },
+    "-1807531677": {
+      "source": "-1102473136",
+      "target": "958813194",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1807531677"
+    }
+  },
+  "entrypoints": {},
+  "extras": {
+    "orphanedEnhancers": [],
+    "attachedEnhancers": []
+  },
+  "status": "partial",
+  "metadata": {
+    "cause": {
+      "type": "unknown",
+      "error": {
+        "query": "CREATE TABLE `comments` (`id` int NOT NULL AUTO_INCREMENT, `content` varchar(255) NOT NULL, `author` varchar(255) NOT NULL, `createdAt` datetime NOT NULL DEFAULT '1727694356456', `workoutId` int NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB",
+        "driverError": {
+          "code": "ER_INVALID_DEFAULT",
+          "errno": 1067,
+          "sqlState": "42000",
+          "sqlMessage": "Invalid default value for 'createdAt'",
+          "sql": "CREATE TABLE `comments` (`id` int NOT NULL AUTO_INCREMENT, `content` varchar(255) NOT NULL, `author` varchar(255) NOT NULL, `createdAt` datetime NOT NULL DEFAULT '1727694356456', `workoutId` int NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB"
+        },
+        "code": "ER_INVALID_DEFAULT",
+        "errno": 1067,
+        "sqlState": "42000",
+        "sqlMessage": "Invalid default value for 'createdAt'",
+        "sql": "CREATE TABLE `comments` (`id` int NOT NULL AUTO_INCREMENT, `content` varchar(255) NOT NULL, `author` varchar(255) NOT NULL, `createdAt` datetime NOT NULL DEFAULT '1727694356456', `workoutId` int NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB"
+      }
+    }
+  }
+}
