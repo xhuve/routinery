@@ -15,7 +15,7 @@ export class UsersService {
     }
     
     createUser(userDetails: {username: string, password: string, email: string}) {
-        const newUser = this.userRepo.create({ ...userDetails, createdAt: new Date() })
+        const newUser = this.userRepo.create({ ...userDetails })
 
         return this.userRepo.save(newUser)
     }

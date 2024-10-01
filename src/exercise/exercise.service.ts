@@ -11,12 +11,12 @@ export class ExerciseService {
         return this.exerciseRepo.find()
     }
 
-    createExercise(createExercise: {
+    createExercise(newExercise: {
         name: string;
         type: string;
         length: number;
     }) {
-        const exercise = this.exerciseRepo.create({...createExercise});
+        const exercise = this.exerciseRepo.create({...newExercise});
         this.exerciseRepo.save(exercise);
     }
 

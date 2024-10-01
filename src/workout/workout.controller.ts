@@ -10,11 +10,11 @@ export class WorkoutController {
 
     @Get()
     getWorkouts() {
-        this.workoutService.getWorkouts()
+        return this.workoutService.getWorkouts()
     }
 
-    @Post() 
+    @Post()
     createWorkout(@Body() CreateWorkoutDto: CreateWorkoutDto) {
-        this.workoutService.createWorkout(CreateWorkoutDto)
+        return this.workoutService.createWorkout(CreateWorkoutDto)
     }
 }
