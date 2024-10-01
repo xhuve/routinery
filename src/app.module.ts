@@ -13,16 +13,21 @@ import { Comment } from './typeorm/entities/Comment';
 import { ExerciseModule } from './exercise/exercise.module';
 
 @Module({
-  imports: [WorkoutModule, TypeOrmModule.forRoot({
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'a',
-    database: 'workout_app',
-    entities: [User, Exercise, Workout, Comment],
-    synchronize: true
-  }), UsersModule, ExerciseModule],
+  imports: [
+    WorkoutModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'a',
+      database: 'workout_app',
+      entities: [User, Exercise, Workout, Comment],
+      synchronize: true,
+    }),
+    UsersModule,
+    ExerciseModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

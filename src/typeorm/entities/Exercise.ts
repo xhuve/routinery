@@ -1,24 +1,29 @@
-import { Column, CreateDateColumn, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Workout } from "./Workout";
-
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Workout } from './Workout';
 
 @Entity({ name: 'exercise' })
 export class Exercise {
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @Column()
-    name: string
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ default: "None" })
-    type: string
+  @Column()
+  name: string;
 
-    @CreateDateColumn()
-    createdAt: Date
+  @Column({ default: 'None' })
+  type: string;
 
-    @Column({ nullable: true })
-    length: number
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @ManyToMany(() => Workout, (workout) => workout.exercises)
-    workouts: Workout[]
+  @Column({ nullable: true })
+  length: number;
+
+  @ManyToMany(() => Workout, (workout) => workout.exercises)
+  workouts: Workout[];
 }

@@ -1,26 +1,33 @@
-import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Exercise } from "./Exercise";
-import { Comment } from "./Comment";
-
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Exercise } from './Exercise';
+import { Comment } from './Comment';
 
 @Entity({ name: 'workout' })
 export class Workout {
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @Column()
-    name: string
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    length: number
+  @Column()
+  name: string;
 
-    @CreateDateColumn()
-    createdAt: Date
+  @Column()
+  length: number;
 
-    @ManyToMany(() => Exercise, (exercise) => exercise.workouts)
-    @JoinTable()
-    exercises: Exercise[]
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @OneToMany(() => Comment, (comment) => comment.workout)
-    comments: Comment[]
+  @ManyToMany(() => Exercise, (exercise) => exercise.workouts)
+  @JoinTable()
+  exercises: Exercise[];
+
+  @OneToMany(() => Comment, (comment) => comment.workout)
+  comments: Comment[];
 }

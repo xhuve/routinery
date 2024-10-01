@@ -6,15 +6,15 @@ import { ApiTags } from '@nestjs/swagger';
 @ApiTags('exercise')
 @Controller('exercise')
 export class ExerciseController {
-    constructor(private exerciseService: ExerciseService) {}
+  constructor(private exerciseService: ExerciseService) {}
 
-    @Get()
-    getExercise() {
-        return this.exerciseService.getExercises()
-    }
+  @Get()
+  getExercise() {
+    return this.exerciseService.getExercises();
+  }
 
-    @Post()
-    createExercise(@Body() createExercise: CreateExerciseDto) {
-        this.exerciseService.createExercise(createExercise)
-    }
+  @Post()
+  createExercise(@Body() createExercise: CreateExerciseDto) {
+    this.exerciseService.createExercise(createExercise);
+  }
 }

@@ -7,6 +7,6 @@ import { Exercise } from 'src/typeorm/entities/Exercise';
 @Module({
   imports: [TypeOrmModule.forFeature([Exercise])],
   controllers: [ExerciseController],
-  providers: [ExerciseService]
+  providers: [ExerciseService],
 })
 export class ExerciseModule {}
