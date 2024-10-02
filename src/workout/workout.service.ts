@@ -49,7 +49,10 @@ export class WorkoutService {
 			author: string;
 		},
 	) {
-		const workout = await this.workoutRepo.findOneBy({ id: workoutId });
+		const workout = await this.workoutRepo.findOne({
+			where: { id: workoutId },
+			relations: ['comments'],
+		});
 		if (!workout) {
 			throw new HttpException(
 				'Workout not found, cannot add comment.',

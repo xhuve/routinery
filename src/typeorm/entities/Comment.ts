@@ -1,26 +1,27 @@
 import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
+	Column,
+	CreateDateColumn,
+	Entity,
+	JoinTable,
+	ManyToOne,
+	PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Workout } from './Workout';
 
 @Entity({ name: 'comment' })
 export class Comment {
-  @PrimaryGeneratedColumn()
-  id: number;
+	@PrimaryGeneratedColumn()
+	id: number;
 
-  @Column()
-  content: string;
+	@Column()
+	content: string;
 
-  @Column()
-  author: string;
+	@Column()
+	author: string;
 
-  @CreateDateColumn()
-  createdAt: Date;
+	@CreateDateColumn()
+	createdAt: Date;
 
-  @ManyToOne(() => Workout, (workout) => workout.comments)
-  workout: Workout;
+	@ManyToOne(() => Workout, (workout) => workout.comments)
+	workout: Workout;
 }
