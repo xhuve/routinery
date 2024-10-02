@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Workout } from 'src/typeorm/entities/Workout';
 import { In, Repository } from 'typeorm';
@@ -14,12 +14,14 @@ export class WorkoutService {
 		@InjectRepository(Comment) private commentRepo: Repository<Comment>,
 	) {}
 
-	async getWorkouts() {
-		return await this.workoutRepo.find({
-			relations: {
-				exercises: true,
-			},
+	getWorkouts() {
+		return this.workoutRepo.find({
+			relations: ['exercises', 'comments'],
 		});
+	}
+
+	getWorkoutById(workoutId: number) {
+		return this.workoutRepo.findOneBy({ id: workoutId });
 	}
 
 	async createWorkout(newWorkout: CreateWorkoutDto) {
@@ -38,36 +40,7 @@ export class WorkoutService {
 		return await this.workoutRepo.save(workout);
 	}
 
-	async getWorkoutComments(id: number) {
-		return await this.commentRepo.find({ where: { workout: { id } } });
-	}
-
-	async addWorkoutComment(
-		workoutId: number,
-		workoutComment: {
-			content: string;
-			author: string;
-		},
-	) {
-		const workout = await this.workoutRepo.findOne({
-			where: { id: workoutId },
-			relations: ['comments'],
-		});
-		if (!workout) {
-			throw new HttpException(
-				'Workout not found, cannot add comment.',
-				HttpStatus.BAD_REQUEST,
-			);
-		}
-		const comment = this.commentRepo.create({
-			...workoutComment,
-			workout: workout,
-		});
-		const savedComment = await this.commentRepo.save(comment);
-
-		workout.comments = workout.comments || [];
-		workout.comments.push(savedComment);
-
-		return await this.workoutRepo.save(workout);
+	async deleteWorkout(id: number) {
+		await this.workoutRepo.delete(id);
 	}
 }

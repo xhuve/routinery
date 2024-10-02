@@ -7,8 +7,8 @@ import { Comment } from 'src/typeorm/entities/Comment';
 import { Exercise } from 'src/typeorm/entities/Exercise';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Workout, Exercise, Comment])],
-  controllers: [WorkoutController],
-  providers: [WorkoutService],
+	imports: [TypeOrmModule.forFeature([Workout, Exercise, Comment])],
+	controllers: [WorkoutController],
+	providers: [WorkoutService],
 })
 export class WorkoutModule {}

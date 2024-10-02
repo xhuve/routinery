@@ -5,16 +5,20 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ExerciseService {
-  constructor(
-    @InjectRepository(Exercise) private exerciseRepo: Repository<Exercise>,
-  ) {}
+	constructor(
+		@InjectRepository(Exercise) private exerciseRepo: Repository<Exercise>,
+	) {}
 
-  getExercises() {
-    return this.exerciseRepo.find();
-  }
+	getExercises() {
+		return this.exerciseRepo.find();
+	}
 
-  async createExercise(newExercise: { name: string; type: string; length: number }) {
-    const exercise = this.exerciseRepo.create({ ...newExercise });
-    await this.exerciseRepo.save(exercise);
-  }
+	createExercise(newExercise: { name: string; type: string; length: number }) {
+		const exercise = this.exerciseRepo.create({ ...newExercise });
+		return this.exerciseRepo.save(exercise);
+	}
+
+	async deleteExercise(id: number) {
+		await this.exerciseRepo.delete({ id });
+	}
 }

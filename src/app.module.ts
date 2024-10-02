@@ -11,24 +11,26 @@ import { Exercise } from './typeorm/entities/Exercise';
 import { Workout } from './typeorm/entities/Workout';
 import { Comment } from './typeorm/entities/Comment';
 import { ExerciseModule } from './exercise/exercise.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
-  imports: [
-    WorkoutModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'a',
-      database: 'workout_app',
-      entities: [User, Exercise, Workout, Comment],
-      synchronize: true,
-    }),
-    UsersModule,
-    ExerciseModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		WorkoutModule,
+		TypeOrmModule.forRoot({
+			type: 'mysql',
+			host: 'localhost',
+			port: 3306,
+			username: 'root',
+			password: 'a',
+			database: 'workout_app',
+			entities: [User, Exercise, Workout, Comment],
+			synchronize: true,
+		}),
+		UsersModule,
+		ExerciseModule,
+		CommentModule,
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
 export class AppModule {}

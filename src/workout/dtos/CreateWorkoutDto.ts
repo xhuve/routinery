@@ -1,27 +1,32 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
+import {
+	IsNumber,
+	IsOptional,
+	IsString,
+	ValidateNested,
+} from 'class-validator';
 import { CreateExerciseDto } from 'src/exercise/dtos/CreateExerciseDto';
-import { CreateCommentDto } from './CreateCommentDto';
+import { CreateCommentDto } from 'src/comment/dtos/CreateCommentDto';
 
 export class CreateWorkoutDto {
-  @IsString()
-  @ApiProperty()
-  name: string;
+	@IsString()
+	@ApiProperty()
+	name: string;
 
-  @IsNumber()
-  @ApiProperty()
-  length: number;
+	@IsNumber()
+	@ApiProperty()
+	length: number;
 
-  @ValidateNested({ each: true })
-  @Type(() => CreateExerciseDto)
-  @ApiProperty({ type: [CreateExerciseDto] })
-  @IsOptional()
-  exercises: CreateExerciseDto[];
+	@ValidateNested({ each: true })
+	@Type(() => CreateExerciseDto)
+	@ApiProperty({ type: [CreateExerciseDto] })
+	@IsOptional()
+	exercises: CreateExerciseDto[];
 
-  @ValidateNested({ each: true })
-  @Type(() => CreateCommentDto)
-  @ApiProperty({ type: [CreateCommentDto] })
-  @IsOptional()
-  comments: CreateCommentDto[];
+	@ValidateNested({ each: true })
+	@Type(() => CreateCommentDto)
+	@ApiProperty({ type: [CreateCommentDto] })
+	@IsOptional()
+	comments: CreateCommentDto[];
 }

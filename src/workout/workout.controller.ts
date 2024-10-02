@@ -1,7 +1,9 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
+	HttpStatus,
 	Param,
 	ParseIntPipe,
 	Post,
@@ -9,7 +11,6 @@ import {
 import { WorkoutService } from './workout.service';
 import { CreateWorkoutDto } from './dtos/CreateWorkoutDto';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateCommentDto } from './dtos/CreateCommentDto';
 
 @ApiTags('workout')
 @Controller('workout')
@@ -17,25 +18,22 @@ export class WorkoutController {
 	constructor(private workoutService: WorkoutService) {}
 
 	@Get()
-	getWorkouts() {
-		return this.workoutService.getWorkouts();
+	async getWorkouts() {
+		return await this.workoutService.getWorkouts();
+	}
+
+	@Get(':workoutId')
+	async getWorkoutById(@Param('workoutId', ParseIntPipe) workoutId: number) {
+		return await this.workoutService.getWorkoutById(workoutId);
 	}
 
 	@Post()
-	createWorkout(@Body() CreateWorkoutDto: CreateWorkoutDto) {
-		return this.workoutService.createWorkout(CreateWorkoutDto);
+	async createWorkout(@Body() CreateWorkoutDto: CreateWorkoutDto) {
+		return await this.workoutService.createWorkout(CreateWorkoutDto);
 	}
 
-	@Get(':id/comment')
-	getWorkoutComments(@Param('id', ParseIntPipe) id: number) {
-		return this.workoutService.getWorkoutComments(id);
-	}
-	@Post(':id/comment')
-	addWorkoutComment(
-		@Param('id', ParseIntPipe) id: number,
-		@Body() addCommentDto: CreateCommentDto,
-	) {
-		console.log(id);
-		return this.workoutService.addWorkoutComment(id, addCommentDto);
+	@Delete(':workoutId')
+	async deleteWorkout(@Param('workoutId', ParseIntPipe) id: number) {
+		await this.workoutService.deleteWorkout(id);
 	}
 }
