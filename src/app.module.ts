@@ -14,6 +14,7 @@ import { ExerciseModule } from './exercise/exercise.module';
 import { CommentModule } from './comment/comment.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
 	imports: [
@@ -33,6 +34,11 @@ import { AuthModule } from './auth/auth.module';
 		ExerciseModule,
 		CommentModule,
 		AuthModule,
+		JwtModule.register({
+			global: true,
+			secret: process.env.JWT_SECRET,
+			signOptions: { expiresIn: '1d' },
+		}),
 	],
 	controllers: [AppController],
 	providers: [AppService],

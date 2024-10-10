@@ -6,12 +6,16 @@ import { UsersModule } from './users/users.module';
 import { WorkoutModule } from './workout/workout.module';
 import { ExerciseModule } from './exercise/exercise.module';
 import { CommentModule } from './comment/comment.module';
+import { AuthModule } from './auth/auth.module';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule, {
 		snapshot: true,
 		abortOnError: false,
 	});
+
+	app.use(cookieParser());
 
 	const config = new DocumentBuilder()
 		.setTitle('Workout app')
@@ -20,11 +24,18 @@ async function bootstrap() {
 		.build();
 
 	const document = SwaggerModule.createDocument(app, config, {
-		include: [UsersModule, WorkoutModule, ExerciseModule, CommentModule],
+		include: [
+			UsersModule,
+			WorkoutModule,
+			ExerciseModule,
+			CommentModule,
+			AuthModule,
+		],
 	});
 
 	SwaggerModule.setup('api', app, document);
 
+	console.log('Api Running');
 	await app.listen(3000);
 }
 bootstrap().catch((err) => {
