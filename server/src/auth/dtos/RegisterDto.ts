@@ -6,9 +6,12 @@ export class RegisterDto {
 	@IsString()
 	username: string;
 	@ApiProperty()
-	@IsEmail()
+	@IsEmail({}, { message: 'Incorrect email format!' })
 	email: string;
 	@ApiProperty()
 	@IsString()
 	password: string;
+	@ApiProperty()
+	@IsString()
+	gender: string;
 }

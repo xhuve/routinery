@@ -1,0 +1,2620 @@
+{
+  "nodes": {
+    "28991136": {
+      "id": "28991136",
+      "label": "WorkoutModule",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": true,
+        "token": "WorkoutModule",
+        "initTime": 30.382700000000114
+      }
+    },
+    "52633725": {
+      "id": "52633725",
+      "label": "ApplicationConfig",
+      "parent": "-1854488872",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "52633726": {
+      "id": "52633726",
+      "label": "ApplicationConfig",
+      "parent": "-1854488871",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "52633727": {
+      "id": "52633727",
+      "label": "ApplicationConfig",
+      "parent": "-1854488870",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "52633728": {
+      "id": "52633728",
+      "label": "ApplicationConfig",
+      "parent": "-1854488869",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "92420881": {
+      "id": "92420881",
+      "label": "DatabaseConnection",
+      "parent": "-1350909915",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "DatabaseConnection"
+      }
+    },
+    "95355232": {
+      "id": "95355232",
+      "label": "JwtModule",
+      "parent": "-536515674",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "JwtModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "JwtModule",
+        "initTime": 26.009199999999964
+      }
+    },
+    "203550704": {
+      "id": "203550704",
+      "label": "ExternalContextCreator",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ExternalContextCreator",
+        "initTime": 30.78760000000011
+      }
+    },
+    "211572259": {
+      "id": "211572259",
+      "label": "ConfigHostModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "225063248": {
+      "id": "225063248",
+      "label": "InternalCoreModule",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "InternalCoreModule",
+        "initTime": 31.801600000000235
+      }
+    },
+    "233936880": {
+      "id": "233936880",
+      "label": "AppController",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AppController"
+      }
+    },
+    "264711474": {
+      "id": "264711474",
+      "label": "MongooseModule",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseModule",
+        "initTime": 29.574499999999716
+      }
+    },
+    "284406329": {
+      "id": "284406329",
+      "label": "ApplicationConfig",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "303302557": {
+      "id": "303302557",
+      "label": "ModuleRef",
+      "parent": "211572259",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigHostModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "357226364": {
+      "id": "357226364",
+      "label": "WorkoutModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "385041166": {
+      "id": "385041166",
+      "label": "JwtStrategy",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "JwtStrategy",
+        "initTime": 26.06970000000001
+      }
+    },
+    "401908536": {
+      "id": "401908536",
+      "label": "ExerciseController",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ExerciseController",
+        "enhancers": [
+          {
+            "id": "-1590035154",
+            "methodKey": "deleteExercise",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "555176277": {
+      "id": "555176277",
+      "label": "InternalCoreModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": true
+      }
+    },
+    "603011239": {
+      "id": "603011239",
+      "label": "UsersService",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "UsersService"
+      }
+    },
+    "612468232": {
+      "id": "612468232",
+      "label": "ExerciseModule",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ExerciseModule",
+        "initTime": 27.937099999999646
+      }
+    },
+    "622647649": {
+      "id": "622647649",
+      "label": "ExerciseService",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ExerciseService"
+      }
+    },
+    "671882984": {
+      "id": "671882984",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 31.55450000000019
+      }
+    },
+    "699745446": {
+      "id": "699745446",
+      "label": "MongooseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "779684885": {
+      "id": "779684885",
+      "label": "CommentModel",
+      "parent": "-1854488869",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "CommentModel"
+      }
+    },
+    "902560543": {
+      "id": "902560543",
+      "label": "ModuleRef",
+      "parent": "-1350909915",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "915774976": {
+      "id": "915774976",
+      "label": "ApplicationConfig",
+      "parent": "1712628187",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "930519593": {
+      "id": "930519593",
+      "label": "ConfigService",
+      "parent": "211572259",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "ConfigHostModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "Symbol(CONFIG_SERVICE)",
+        "initTime": 32.19390000000021
+      }
+    },
+    "958813194": {
+      "id": "958813194",
+      "label": "ParseIntPipe",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ParseIntPipe",
+        "subtype": "pipe"
+      }
+    },
+    "981404832": {
+      "id": "981404832",
+      "label": "ModuleRef",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "984659044": {
+      "id": "984659044",
+      "label": "MongooseModule",
+      "parent": "-1854488872",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseModule",
+        "initTime": 28.888300000000072
+      }
+    },
+    "984659045": {
+      "id": "984659045",
+      "label": "MongooseModule",
+      "parent": "-1854488871",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseModule",
+        "initTime": 28.002500000000055
+      }
+    },
+    "984659046": {
+      "id": "984659046",
+      "label": "MongooseModule",
+      "parent": "-1854488870",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseModule",
+        "initTime": 27.41060000000016
+      }
+    },
+    "984659047": {
+      "id": "984659047",
+      "label": "MongooseModule",
+      "parent": "-1854488869",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseModule",
+        "initTime": 26.37039999999979
+      }
+    },
+    "1051939025": {
+      "id": "1051939025",
+      "label": "WorkoutService",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "WorkoutService"
+      }
+    },
+    "1063746662": {
+      "id": "1063746662",
+      "label": "CONFIGURATION_TOKEN",
+      "parent": "211572259",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "ConfigHostModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "CONFIGURATION_TOKEN",
+        "initTime": 28.92360000000008
+      }
+    },
+    "1070370213": {
+      "id": "1070370213",
+      "label": "JwtService",
+      "parent": "-536515674",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "JwtModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "JwtService",
+        "initTime": 26.701300000000174
+      }
+    },
+    "1335978492": {
+      "id": "1335978492",
+      "label": "ExerciseModel",
+      "parent": "-1854488870",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ExerciseModel"
+      }
+    },
+    "1340201429": {
+      "id": "1340201429",
+      "label": "CommentService",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "CommentService"
+      }
+    },
+    "1404752088": {
+      "id": "1404752088",
+      "label": "AuthController",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AuthController"
+      }
+    },
+    "1424580599": {
+      "id": "1424580599",
+      "label": "ApplicationConfig",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1434456218": {
+      "id": "1434456218",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 34.473599999999806
+      }
+    },
+    "1542581243": {
+      "id": "1542581243",
+      "label": "ModuleRef",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "1690574933": {
+      "id": "1690574933",
+      "label": "ModuleRef",
+      "parent": "1712628187",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "1696444310": {
+      "id": "1696444310",
+      "label": "ApplicationConfig",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1712628187": {
+      "id": "1712628187",
+      "label": "ConfigModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "1712941473": {
+      "id": "1712941473",
+      "label": "ApplicationConfig",
+      "parent": "-536515674",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "JwtModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1737837706": {
+      "id": "1737837706",
+      "label": "ApplicationConfig",
+      "parent": "-1350909915",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1769319388": {
+      "id": "1769319388",
+      "label": "ConfigModule",
+      "parent": "1712628187",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ConfigModule",
+        "initTime": 29.528099999999995
+      }
+    },
+    "1787828844": {
+      "id": "1787828844",
+      "label": "ConfigHostModule",
+      "parent": "211572259",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigHostModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ConfigHostModule",
+        "initTime": 29.019600000000082
+      }
+    },
+    "1835308383": {
+      "id": "1835308383",
+      "label": "JwtPasswordStrategy",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "JwtPasswordStrategy",
+        "subtype": "guard"
+      }
+    },
+    "1919157847": {
+      "id": "1919157847",
+      "label": "REQUEST",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": false,
+        "scope": 2,
+        "transient": false,
+        "exported": true,
+        "token": "REQUEST",
+        "initTime": 29.793300000000272
+      }
+    },
+    "1986699406": {
+      "id": "1986699406",
+      "label": "MongooseConnectionName",
+      "parent": "-1350909915",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseConnectionName"
+      }
+    },
+    "2087959843": {
+      "id": "2087959843",
+      "label": "CommentModel",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "CommentModel"
+      }
+    },
+    "2118694856": {
+      "id": "2118694856",
+      "label": "ApplicationConfig",
+      "parent": "211572259",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ConfigHostModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1486320561": {
+      "id": "-1486320561",
+      "label": "ModuleRef",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-651043398": {
+      "id": "-651043398",
+      "label": "ApplicationConfig",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-255469305": {
+      "id": "-255469305",
+      "label": "INQUIRER",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 1,
+        "transient": true,
+        "exported": true,
+        "token": "INQUIRER",
+        "initTime": 29.777999999999793
+      }
+    },
+    "-26938366": {
+      "id": "-26938366",
+      "label": "ModulesContainer",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ModulesContainer",
+        "initTime": 30.772699999999986
+      }
+    },
+    "-326832201": {
+      "id": "-326832201",
+      "label": "HttpAdapterHost",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "HttpAdapterHost",
+        "initTime": 30.752300000000105
+      }
+    },
+    "-702581189": {
+      "id": "-702581189",
+      "label": "LazyModuleLoader",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "LazyModuleLoader",
+        "initTime": 30.748999999999796
+      }
+    },
+    "-1904419534": {
+      "id": "-1904419534",
+      "label": "SerializedGraph",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "SerializedGraph",
+        "initTime": 30.685499999999593
+      }
+    },
+    "-19112576": {
+      "id": "-19112576",
+      "label": "AppModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-2139588960": {
+      "id": "-2139588960",
+      "label": "AppModule",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "AppModule",
+        "initTime": 30.69939999999997
+      }
+    },
+    "-71302842": {
+      "id": "-71302842",
+      "label": "ModuleRef",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-2064622725": {
+      "id": "-2064622725",
+      "label": "ApplicationConfig",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-2130614055": {
+      "id": "-2130614055",
+      "label": "AppService",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AppService",
+        "initTime": 30.678100000000086
+      }
+    },
+    "-326424510": {
+      "id": "-326424510",
+      "label": "ModuleRef",
+      "parent": "357226364",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-205455521": {
+      "id": "-205455521",
+      "label": "ParseIntPipe",
+      "parent": "357226364",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ParseIntPipe",
+        "subtype": "pipe"
+      }
+    },
+    "-106187280": {
+      "id": "-106187280",
+      "label": "WorkoutController",
+      "parent": "357226364",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "WorkoutModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "WorkoutController",
+        "enhancers": [
+          {
+            "id": "-205455521",
+            "methodKey": "getWorkoutById",
+            "subtype": "pipe"
+          },
+          {
+            "id": "-205455521",
+            "methodKey": "deleteWorkout",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-572011637": {
+      "id": "-572011637",
+      "label": "ApplicationConfig",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-199726902": {
+      "id": "-199726902",
+      "label": "ExerciseModel",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ExerciseModel"
+      }
+    },
+    "-1837444059": {
+      "id": "-1837444059",
+      "label": "WorkoutModel",
+      "parent": "699745446",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "WorkoutModel"
+      }
+    },
+    "-503631789": {
+      "id": "-503631789",
+      "label": "ConfigService",
+      "parent": "1712628187",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "ConfigModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ConfigService"
+      }
+    },
+    "-1854488872": {
+      "id": "-1854488872",
+      "label": "MongooseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-1762758574": {
+      "id": "-1762758574",
+      "label": "ModuleRef",
+      "parent": "-1854488872",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1350909915": {
+      "id": "-1350909915",
+      "label": "MongooseCoreModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-941557008": {
+      "id": "-941557008",
+      "label": "MongooseCoreModule",
+      "parent": "-1350909915",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "MongooseCoreModule",
+        "initTime": 29.64980000000014
+      }
+    },
+    "-2003726489": {
+      "id": "-2003726489",
+      "label": "UsersModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-495603840": {
+      "id": "-495603840",
+      "label": "UsersModule",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "UsersModule",
+        "initTime": 28.610799999999927
+      }
+    },
+    "-618964563": {
+      "id": "-618964563",
+      "label": "ModuleRef",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-643958110": {
+      "id": "-643958110",
+      "label": "ApplicationConfig",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1102473136": {
+      "id": "-1102473136",
+      "label": "UsersController",
+      "parent": "-2003726489",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "UsersModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "UsersController",
+        "enhancers": [
+          {
+            "id": "1835308383",
+            "methodKey": "getUserById",
+            "subtype": "guard"
+          },
+          {
+            "id": "1835308383",
+            "methodKey": "deleteByUserId",
+            "subtype": "guard"
+          },
+          {
+            "id": "958813194",
+            "methodKey": "getUserById",
+            "subtype": "pipe"
+          },
+          {
+            "id": "958813194",
+            "methodKey": "updateUserById",
+            "subtype": "pipe"
+          },
+          {
+            "id": "958813194",
+            "methodKey": "deleteByUserId",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-1854488871": {
+      "id": "-1854488871",
+      "label": "MongooseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-1762758573": {
+      "id": "-1762758573",
+      "label": "ModuleRef",
+      "parent": "-1854488871",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1996665865": {
+      "id": "-1996665865",
+      "label": "UserModel",
+      "parent": "-1854488871",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "UserModel"
+      }
+    },
+    "-1326765903": {
+      "id": "-1326765903",
+      "label": "ExerciseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-1045106517": {
+      "id": "-1045106517",
+      "label": "ModuleRef",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1590035154": {
+      "id": "-1590035154",
+      "label": "ParseIntPipe",
+      "parent": "-1326765903",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "ExerciseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ParseIntPipe",
+        "subtype": "pipe"
+      }
+    },
+    "-1854488870": {
+      "id": "-1854488870",
+      "label": "MongooseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-1762758572": {
+      "id": "-1762758572",
+      "label": "ModuleRef",
+      "parent": "-1854488870",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-782947906": {
+      "id": "-782947906",
+      "label": "CommentModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-1480746528": {
+      "id": "-1480746528",
+      "label": "CommentModule",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "CommentModule",
+        "initTime": 27.329099999999926
+      }
+    },
+    "-1466598780": {
+      "id": "-1466598780",
+      "label": "ModuleRef",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1345629791": {
+      "id": "-1345629791",
+      "label": "ParseIntPipe",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "ParseIntPipe",
+        "subtype": "pipe"
+      }
+    },
+    "-1225375184": {
+      "id": "-1225375184",
+      "label": "CommentController",
+      "parent": "-782947906",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "CommentModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "CommentController",
+        "enhancers": [
+          {
+            "id": "-1345629791",
+            "methodKey": "getComment",
+            "subtype": "pipe"
+          },
+          {
+            "id": "-1345629791",
+            "methodKey": "addWorkoutComment",
+            "subtype": "pipe"
+          },
+          {
+            "id": "-1345629791",
+            "methodKey": "deleteComment",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-1854488869": {
+      "id": "-1854488869",
+      "label": "MongooseModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-1762758571": {
+      "id": "-1762758571",
+      "label": "ModuleRef",
+      "parent": "-1854488869",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-552179049": {
+      "id": "-552179049",
+      "label": "WorkoutModel",
+      "parent": "-1854488869",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "MongooseModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "WorkoutModel"
+      }
+    },
+    "-1134487807": {
+      "id": "-1134487807",
+      "label": "AuthModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-1846279256": {
+      "id": "-1846279256",
+      "label": "AuthModule",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "AuthModule",
+        "initTime": 26.333399999999983
+      }
+    },
+    "-120792986": {
+      "id": "-120792986",
+      "label": "ApplicationConfig",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-793915935": {
+      "id": "-793915935",
+      "label": "AuthService",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "AuthService"
+      }
+    },
+    "-536515674": {
+      "id": "-536515674",
+      "label": "JwtModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": false
+      }
+    },
+    "-588705940": {
+      "id": "-588705940",
+      "label": "ModuleRef",
+      "parent": "-536515674",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "JwtModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1900804336": {
+      "id": "-1900804336",
+      "label": "JWT_MODULE_OPTIONS",
+      "parent": "-536515674",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "JwtModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "JWT_MODULE_OPTIONS"
+      }
+    }
+  },
+  "edges": {
+    "172420593": {
+      "source": "-1102473136",
+      "target": "958813194",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "172420593"
+    },
+    "189694679": {
+      "source": "1434456218",
+      "target": "671882984",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "InternalCoreModule",
+        "sourceClassName": "Reflector",
+        "targetClassName": "Reflector",
+        "sourceClassToken": "Reflector",
+        "targetClassToken": "Reflector",
+        "targetModuleName": "InternalCoreModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor",
+        "internal": true
+      },
+      "id": "189694679"
+    },
+    "219775656": {
+      "source": "-19112576",
+      "target": "-1134487807",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "AuthModule"
+      },
+      "id": "219775656"
+    },
+    "289403048": {
+      "source": "-1134487807",
+      "target": "-2003726489",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AuthModule",
+        "targetModuleName": "UsersModule"
+      },
+      "id": "289403048"
+    },
+    "330046600": {
+      "source": "699745446",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "330046600"
+    },
+    "353572985": {
+      "source": "1712628187",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "353572985"
+    },
+    "378304918": {
+      "source": "-1326765903",
+      "target": "-1854488870",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ExerciseModule",
+        "targetModuleName": "MongooseModule"
+      },
+      "id": "378304918"
+    },
+    "429962970": {
+      "source": "357226364",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "429962970"
+    },
+    "456853847": {
+      "source": "699745446",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "456853847"
+    },
+    "478594370": {
+      "source": "-2003726489",
+      "target": "-1854488871",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "MongooseModule"
+      },
+      "id": "478594370"
+    },
+    "480927323": {
+      "source": "-1326765903",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ExerciseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "480927323"
+    },
+    "584653416": {
+      "source": "1712628187",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "584653416"
+    },
+    "608766232": {
+      "source": "-1350909915",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseCoreModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "608766232"
+    },
+    "750211886": {
+      "source": "-1854488869",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "750211886"
+    },
+    "784525888": {
+      "source": "-536515674",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "JwtModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "784525888"
+    },
+    "805244905": {
+      "source": "-1350909915",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseCoreModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "805244905"
+    },
+    "821481271": {
+      "source": "1712628187",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "821481271"
+    },
+    "876643955": {
+      "source": "-782947906",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "CommentModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "876643955"
+    },
+    "877543340": {
+      "source": "-1854488869",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "877543340"
+    },
+    "897941956": {
+      "source": "-1854488872",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "897941956"
+    },
+    "920687522": {
+      "source": "-1134487807",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AuthModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "920687522"
+    },
+    "978356204": {
+      "source": "-1134487807",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AuthModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "978356204"
+    },
+    "987755577": {
+      "source": "-2003726489",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "987755577"
+    },
+    "1056428433": {
+      "source": "-19112576",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1056428433"
+    },
+    "1134336077": {
+      "source": "-536515674",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "JwtModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1134336077"
+    },
+    "1138840369": {
+      "source": "-1854488869",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "1138840369"
+    },
+    "1141753216": {
+      "source": "-2003726489",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "1141753216"
+    },
+    "1175183130": {
+      "source": "1070370213",
+      "target": "-1900804336",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "JwtModule",
+        "sourceClassName": "JwtService",
+        "targetClassName": "JWT_MODULE_OPTIONS",
+        "sourceClassToken": "JwtService",
+        "targetClassToken": "JWT_MODULE_OPTIONS",
+        "targetModuleName": "JwtModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1175183130"
+    },
+    "1207819375": {
+      "source": "-19112576",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "1207819375"
+    },
+    "1235902913": {
+      "source": "-2003726489",
+      "target": "357226364",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "WorkoutModule"
+      },
+      "id": "1235902913"
+    },
+    "1310818662": {
+      "source": "-782947906",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "CommentModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "1310818662"
+    },
+    "1313870861": {
+      "source": "357226364",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "1313870861"
+    },
+    "1497086506": {
+      "source": "1712628187",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "1497086506"
+    },
+    "1497879906": {
+      "source": "-1326765903",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ExerciseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "1497879906"
+    },
+    "1635936456": {
+      "source": "357226364",
+      "target": "699745446",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "MongooseModule"
+      },
+      "id": "1635936456"
+    },
+    "1712467441": {
+      "source": "-1326765903",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ExerciseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "1712467441"
+    },
+    "1732857284": {
+      "source": "-1102473136",
+      "target": "1835308383",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "JwtPasswordStrategy",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "JwtPasswordStrategy",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "1732857284"
+    },
+    "1791876867": {
+      "source": "-1854488871",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1791876867"
+    },
+    "1940456107": {
+      "source": "-536515674",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "JwtModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "1940456107"
+    },
+    "1967008776": {
+      "source": "-782947906",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "CommentModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "1967008776"
+    },
+    "2052717984": {
+      "source": "-1326765903",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ExerciseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "2052717984"
+    },
+    "2129970765": {
+      "source": "-941557008",
+      "target": "1986699406",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "MongooseCoreModule",
+        "sourceClassName": "MongooseCoreModule",
+        "targetClassName": "MongooseConnectionName",
+        "sourceClassToken": "MongooseCoreModule",
+        "targetClassToken": "MongooseConnectionName",
+        "targetModuleName": "MongooseCoreModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "2129970765"
+    },
+    "-1088946238": {
+      "source": "-941557008",
+      "target": "902560543",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "MongooseCoreModule",
+        "sourceClassName": "MongooseCoreModule",
+        "targetClassName": "ModuleRef",
+        "sourceClassToken": "MongooseCoreModule",
+        "targetClassToken": "ModuleRef",
+        "targetModuleName": "MongooseCoreModule",
+        "keyOrIndex": 1,
+        "injectionType": "constructor",
+        "internal": true
+      },
+      "id": "-1088946238"
+    },
+    "-1650541783": {
+      "source": "-19112576",
+      "target": "357226364",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "WorkoutModule"
+      },
+      "id": "-1650541783"
+    },
+    "-844262897": {
+      "source": "-19112576",
+      "target": "1712628187",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "ConfigModule"
+      },
+      "id": "-844262897"
+    },
+    "-837230757": {
+      "source": "-19112576",
+      "target": "-1854488872",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "MongooseModule"
+      },
+      "id": "-837230757"
+    },
+    "-158970266": {
+      "source": "-19112576",
+      "target": "-2003726489",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "UsersModule"
+      },
+      "id": "-158970266"
+    },
+    "-2043110793": {
+      "source": "-19112576",
+      "target": "-1326765903",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "ExerciseModule"
+      },
+      "id": "-2043110793"
+    },
+    "-2044820336": {
+      "source": "-19112576",
+      "target": "-782947906",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "CommentModule"
+      },
+      "id": "-2044820336"
+    },
+    "-1407874198": {
+      "source": "-19112576",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-1407874198"
+    },
+    "-815553404": {
+      "source": "-19112576",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-815553404"
+    },
+    "-1715904324": {
+      "source": "357226364",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1715904324"
+    },
+    "-747742737": {
+      "source": "357226364",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "WorkoutModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-747742737"
+    },
+    "-2001102970": {
+      "source": "699745446",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-2001102970"
+    },
+    "-865655541": {
+      "source": "699745446",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-865655541"
+    },
+    "-1995183955": {
+      "source": "211572259",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigHostModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1995183955"
+    },
+    "-718282705": {
+      "source": "211572259",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigHostModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-718282705"
+    },
+    "-1762679284": {
+      "source": "211572259",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "ConfigHostModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-1762679284"
+    },
+    "-1121554618": {
+      "source": "-1854488872",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-1121554618"
+    },
+    "-103257323": {
+      "source": "-1854488872",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-103257323"
+    },
+    "-1104663223": {
+      "source": "-1854488872",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-1104663223"
+    },
+    "-707493829": {
+      "source": "-1350909915",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseCoreModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-707493829"
+    },
+    "-991562516": {
+      "source": "-2003726489",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-991562516"
+    },
+    "-1896236073": {
+      "source": "-2003726489",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "UsersModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-1896236073"
+    },
+    "-138081260": {
+      "source": "-1854488871",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-138081260"
+    },
+    "-1043564347": {
+      "source": "-1854488871",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-1043564347"
+    },
+    "-832226936": {
+      "source": "-1854488871",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-832226936"
+    },
+    "-1609155518": {
+      "source": "-1854488870",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1609155518"
+    },
+    "-172905197": {
+      "source": "-1854488870",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-172905197"
+    },
+    "-965574076": {
+      "source": "-1854488870",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-965574076"
+    },
+    "-559790649": {
+      "source": "-1854488870",
+      "target": "-536515674",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "JwtModule"
+      },
+      "id": "-559790649"
+    },
+    "-1503709275": {
+      "source": "-782947906",
+      "target": "-1854488869",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "CommentModule",
+        "targetModuleName": "MongooseModule"
+      },
+      "id": "-1503709275"
+    },
+    "-1560710575": {
+      "source": "-782947906",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "CommentModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-1560710575"
+    },
+    "-939031811": {
+      "source": "-1854488869",
+      "target": "211572259",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "MongooseModule",
+        "targetModuleName": "ConfigHostModule"
+      },
+      "id": "-939031811"
+    },
+    "-1377619055": {
+      "source": "-1134487807",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AuthModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1377619055"
+    },
+    "-1941719021": {
+      "source": "-1134487807",
+      "target": "-1350909915",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AuthModule",
+        "targetModuleName": "MongooseCoreModule"
+      },
+      "id": "-1941719021"
+    },
+    "-1409656889": {
+      "source": "-106187280",
+      "target": "-205455521",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "WorkoutModule",
+        "sourceClassName": "WorkoutController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "WorkoutController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "WorkoutModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1409656889"
+    },
+    "-1765569095": {
+      "source": "-106187280",
+      "target": "-205455521",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "WorkoutModule",
+        "sourceClassName": "WorkoutController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "WorkoutController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "WorkoutModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1765569095"
+    },
+    "-1171457930": {
+      "source": "-1102473136",
+      "target": "1835308383",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "JwtPasswordStrategy",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "JwtPasswordStrategy",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1171457930"
+    },
+    "-1807531677": {
+      "source": "-1102473136",
+      "target": "958813194",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1807531677"
+    },
+    "-1807531676": {
+      "source": "-1102473136",
+      "target": "958813194",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "UsersModule",
+        "sourceClassName": "UsersController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "UsersController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "UsersModule",
+        "injectionType": "decorator"
+      },
+      "id": "-1807531676"
+    },
+    "-158813260": {
+      "source": "401908536",
+      "target": "-1590035154",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "ExerciseModule",
+        "sourceClassName": "ExerciseController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "ExerciseController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "ExerciseModule",
+        "injectionType": "decorator"
+      },
+      "id": "-158813260"
+    },
+    "-644581562": {
+      "source": "-1225375184",
+      "target": "-1345629791",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "CommentModule",
+        "sourceClassName": "CommentController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "CommentController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "CommentModule",
+        "injectionType": "decorator"
+      },
+      "id": "-644581562"
+    },
+    "-967587464": {
+      "source": "-1225375184",
+      "target": "-1345629791",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "CommentModule",
+        "sourceClassName": "CommentController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "CommentController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "CommentModule",
+        "injectionType": "decorator"
+      },
+      "id": "-967587464"
+    },
+    "-967587463": {
+      "source": "-1225375184",
+      "target": "-1345629791",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "CommentModule",
+        "sourceClassName": "CommentController",
+        "targetClassName": "ParseIntPipe",
+        "sourceClassToken": "CommentController",
+        "targetClassToken": "ParseIntPipe",
+        "targetModuleName": "CommentModule",
+        "injectionType": "decorator"
+      },
+      "id": "-967587463"
+    },
+    "-951393523": {
+      "source": "930519593",
+      "target": "1063746662",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "ConfigHostModule",
+        "sourceClassName": "ConfigService",
+        "targetClassName": "CONFIGURATION_TOKEN",
+        "sourceClassToken": "Symbol(CONFIG_SERVICE)",
+        "targetClassToken": "CONFIGURATION_TOKEN",
+        "targetModuleName": "ConfigHostModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-951393523"
+    }
+  },
+  "entrypoints": {},
+  "extras": {
+    "orphanedEnhancers": [],
+    "attachedEnhancers": []
+  },
+  "status": "partial",
+  "metadata": {
+    "cause": {
+      "type": "unknown-dependencies",
+      "context": {
+        "index": 1,
+        "dependencies": [
+          "UserModel",
+          "WorkoutService"
+        ],
+        "name": "WorkoutService"
+      },
+      "moduleId": "-2003726489",
+      "nodeId": "603011239"
+    }
+  }
+}

@@ -1,46 +1,67 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/typeorm/entities/User';
-import { Repository } from 'typeorm';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { User } from 'src/mongoose/entities/User';
+import { WorkoutService } from 'src/workout/workout.service';
 
 @Injectable()
 export class UsersService {
-	constructor(@InjectRepository(User) private userRepo: Repository<User>) {}
+	constructor(
+		@InjectModel(User.name) private userModel: Model<User>,
+		private workoutService: WorkoutService,
+	) {}
 
 	getUsers() {
-		return this.userRepo.find();
+		return this.userModel.find();
 	}
 
 	getUserById(id: number) {
-		return this.userRepo.findBy({ id });
+		return this.userModel.find({ _id: id });
 	}
 
 	getUserByUsername(username: string) {
-		return this.userRepo.findOneBy({ username });
+		return this.userModel.findOne({ username });
 	}
 
-	createUser(userDetails: {
+	async createUser(userDetails: {
 		username: string;
 		password: string;
 		email: string;
 		gender: string;
 	}) {
-		const newUser = this.userRepo.create({
+		const newUser = await this.userModel.create({
 			...userDetails,
-			profilePicture: `https://avatar.iran.liara.run/public/boy?username=${userDetails.username}`,
+			profilePicture: `https://avatar.iran.liara.run/public/${userDetails.gender}?username=${userDetails.username}`,
 		});
 
-		return this.userRepo.save(newUser);
+		return newUser.save();
 	}
 
 	updateUser(
 		userId: number,
 		userDetails: { username: string; password: string; email: string },
 	) {
-		return this.userRepo.update(userId, { ...userDetails });
+		return this.userModel.findOneAndUpdate({ _id: userId }, { ...userDetails });
 	}
 
 	async deleteUser(id: number) {
-		await this.userRepo.delete({ id });
+		await this.userModel.deleteOne({ _id: id });
+	}
+
+	async addToWorkoutHistory(workoutId: number, userId: number) {
+		const workout = await this.workoutService.getWorkoutById(workoutId);
+		const currentUser = await this.userModel
+			.findOne({ id: userId })
+			.populate('workoutHistory');
+
+		if (!currentUser) {
+			throw new Error('User not found');
+		}
+
+		currentUser.workoutHistory.unshift(workout._id);
+
+		currentUser.save();
+
+		return workout;
 	}
 }

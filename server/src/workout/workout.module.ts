@@ -1,14 +1,21 @@
 import { Module } from '@nestjs/common';
 import { WorkoutService } from './workout.service';
-import { Workout } from 'src/typeorm/entities/Workout';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { WorkoutController } from './workout.controller';
-import { Comment } from 'src/typeorm/entities/Comment';
-import { Exercise } from 'src/typeorm/entities/Exercise';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Workout, WorkoutSchema } from 'src/mongoose/entities/Workout';
+import { Exercise, ExerciseSchema } from 'src/mongoose/entities/Exercise';
+import { Comment, CommentSchema } from 'src/mongoose/entities/Comment';
 
 @Module({
-	imports: [TypeOrmModule.forFeature([Workout, Exercise, Comment])],
+	imports: [
+		MongooseModule.forFeature([
+			{ name: Exercise.name, schema: ExerciseSchema },
+			{ name: Workout.name, schema: WorkoutSchema },
+			{ name: Comment.name, schema: CommentSchema },
+		]),
+	],
 	controllers: [WorkoutController],
 	providers: [WorkoutService],
+	exports: [WorkoutService],
 })
 export class WorkoutModule {}

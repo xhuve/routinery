@@ -1,24 +1,26 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Exercise } from 'src/typeorm/entities/Exercise';
+import { Model } from 'mongoose';
+import { Exercise } from 'src/mongoose/entities/Exercise';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class ExerciseService {
 	constructor(
-		@InjectRepository(Exercise) private exerciseRepo: Repository<Exercise>,
+		@InjectModel(Exercise.name) private exerciseModel: Model<Exercise>,
 	) {}
 
 	getExercises() {
-		return this.exerciseRepo.find();
+		return this.exerciseModel.find();
 	}
 
 	createExercise(newExercise: { name: string; type: string; length: number }) {
-		const exercise = this.exerciseRepo.create({ ...newExercise });
-		return this.exerciseRepo.save(exercise);
+		const exercise = new this.exerciseModel({ ...newExercise });
+		return exercise.save();
 	}
 
-	async deleteExercise(id: number) {
-		await this.exerciseRepo.delete({ id });
+	deleteExercise(id: number): Promise<{}> {
+		return this.exerciseModel.deleteOne({ id });
 	}
 }

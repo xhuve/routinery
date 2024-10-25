@@ -1,22 +1,24 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Comment } from 'src/typeorm/entities/Comment';
-import { Workout } from 'src/typeorm/entities/Workout';
+import { Model } from 'mongoose';
+import { Comment } from 'src/mongoose/entities/Comment';
+import { Workout } from 'src/mongoose/entities/Workout';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class CommentService {
 	constructor(
-		@InjectRepository(Comment) private commentRepo: Repository<Comment>,
-		@InjectRepository(Workout) private workoutRepo: Repository<Workout>,
+		@InjectModel(Comment.name) private commentModel: Model<Comment>,
+		@InjectModel(Workout.name) private workoutModel: Model<Workout>,
 	) {}
 
 	async getAllComments() {
-		return await this.commentRepo.find();
+		return await this.commentModel.find();
 	}
 
 	async getWorkoutComments(id: number) {
-		const workout = await this.workoutRepo.findOne({
+		const workout = await this.workoutModel.findOne({
 			where: { id },
 			relations: ['comments'],
 		});
@@ -33,7 +35,7 @@ export class CommentService {
 			author: string;
 		},
 	) {
-		const workout = await this.workoutRepo.findOne({
+		const workout = await this.workoutModel.findOne({
 			where: { id: workoutId },
 			relations: ['comments'],
 		});
@@ -43,19 +45,19 @@ export class CommentService {
 				HttpStatus.BAD_REQUEST,
 			);
 		}
-		const comment = this.commentRepo.create({
+		const comment = new this.commentModel({
 			...workoutComment,
 			workout: workout,
 		});
-		const savedComment = await this.commentRepo.save(comment);
+		const savedComment = await comment.save();
 
 		workout.comments = workout.comments || [];
-		workout.comments.push(savedComment);
+		workout.comments.push(savedComment._id);
 
-		return await this.commentRepo.save(workout);
+		return await workout.save();
 	}
 
 	async deleteComment(id: number) {
-		this.commentRepo.delete({ id });
+		this.commentModel.deleteOne({ id });
 	}
 }

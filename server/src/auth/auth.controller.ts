@@ -18,9 +18,10 @@ export class AuthController {
 	) {
 		const { newUser, accessToken } =
 			await this.authService.register(userDetails);
+		console.log('🚀 ~ AuthController ~ newUser:', newUser);
 		response.cookie('user_token', accessToken);
 
-		return { message: 'Successfully registered', newUser };
+		return newUser;
 	}
 
 	@Post('login')
