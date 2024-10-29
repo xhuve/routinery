@@ -12,9 +12,9 @@
         "static": true,
         "scope": 0,
         "transient": false,
-        "exported": true,
+        "exported": false,
         "token": "WorkoutModule",
-        "initTime": 30.382700000000114
+        "initTime": 24.832400000000234
       }
     },
     "52633725": {
@@ -110,7 +110,7 @@
         "transient": false,
         "exported": false,
         "token": "JwtModule",
-        "initTime": 26.009199999999964
+        "initTime": 22.00759999999991
       }
     },
     "203550704": {
@@ -126,7 +126,7 @@
         "transient": false,
         "exported": true,
         "token": "ExternalContextCreator",
-        "initTime": 30.78760000000011
+        "initTime": 25.06860000000006
       }
     },
     "211572259": {
@@ -153,7 +153,7 @@
         "transient": false,
         "exported": false,
         "token": "InternalCoreModule",
-        "initTime": 31.801600000000235
+        "initTime": 26.93219999999974
       }
     },
     "233936880": {
@@ -168,7 +168,8 @@
         "static": true,
         "transient": false,
         "exported": false,
-        "token": "AppController"
+        "token": "AppController",
+        "initTime": 1.6421000000000276
       }
     },
     "264711474": {
@@ -185,7 +186,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseModule",
-        "initTime": 29.574499999999716
+        "initTime": 23.602699999999913
       }
     },
     "284406329": {
@@ -243,7 +244,7 @@
         "transient": false,
         "exported": false,
         "token": "JwtStrategy",
-        "initTime": 26.06970000000001
+        "initTime": 22.016999999999825
       }
     },
     "401908536": {
@@ -266,6 +267,22 @@
             "subtype": "pipe"
           }
         ]
+      }
+    },
+    "513372681": {
+      "id": "513372681",
+      "label": "JwtPasswordStrategy",
+      "parent": "-1134487807",
+      "metadata": {
+        "type": "injectable",
+        "internal": false,
+        "sourceModuleName": "AuthModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "JwtPasswordStrategy",
+        "subtype": "guard"
       }
     },
     "555176277": {
@@ -307,7 +324,7 @@
         "transient": false,
         "exported": false,
         "token": "ExerciseModule",
-        "initTime": 27.937099999999646
+        "initTime": 22.659400000000005
       }
     },
     "622647649": {
@@ -338,7 +355,7 @@
         "transient": false,
         "exported": true,
         "token": "Reflector",
-        "initTime": 31.55450000000019
+        "initTime": 26.22980000000007
       }
     },
     "699745446": {
@@ -411,7 +428,7 @@
         "transient": false,
         "exported": true,
         "token": "Symbol(CONFIG_SERVICE)",
-        "initTime": 32.19390000000021
+        "initTime": 24.872299999999996
       }
     },
     "958813194": {
@@ -460,7 +477,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseModule",
-        "initTime": 28.888300000000072
+        "initTime": 23.090900000000147
       }
     },
     "984659045": {
@@ -477,7 +494,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseModule",
-        "initTime": 28.002500000000055
+        "initTime": 22.674399999999878
       }
     },
     "984659046": {
@@ -494,7 +511,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseModule",
-        "initTime": 27.41060000000016
+        "initTime": 22.416000000000167
       }
     },
     "984659047": {
@@ -511,7 +528,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseModule",
-        "initTime": 26.37039999999979
+        "initTime": 22.11909999999989
       }
     },
     "1051939025": {
@@ -525,7 +542,7 @@
         "durable": false,
         "static": true,
         "transient": false,
-        "exported": false,
+        "exported": true,
         "token": "WorkoutService"
       }
     },
@@ -542,7 +559,7 @@
         "transient": false,
         "exported": true,
         "token": "CONFIGURATION_TOKEN",
-        "initTime": 28.92360000000008
+        "initTime": 23.121099999999842
       }
     },
     "1070370213": {
@@ -558,7 +575,7 @@
         "transient": false,
         "exported": true,
         "token": "JwtService",
-        "initTime": 26.701300000000174
+        "initTime": 22.272500000000036
       }
     },
     "1335978492": {
@@ -603,7 +620,19 @@
         "static": true,
         "transient": false,
         "exported": false,
-        "token": "AuthController"
+        "token": "AuthController",
+        "enhancers": [
+          {
+            "id": "513372681",
+            "methodKey": "logout",
+            "subtype": "guard"
+          },
+          {
+            "id": "513372681",
+            "methodKey": "getUserInfo",
+            "subtype": "guard"
+          }
+        ]
       }
     },
     "1424580599": {
@@ -636,7 +665,7 @@
         "transient": false,
         "exported": true,
         "token": "Reflector",
-        "initTime": 34.473599999999806
+        "initTime": 27.72739999999976
       }
     },
     "1542581243": {
@@ -743,7 +772,7 @@
         "transient": false,
         "exported": false,
         "token": "ConfigModule",
-        "initTime": 29.528099999999995
+        "initTime": 23.45149999999967
       }
     },
     "1787828844": {
@@ -760,7 +789,7 @@
         "transient": false,
         "exported": false,
         "token": "ConfigHostModule",
-        "initTime": 29.019600000000082
+        "initTime": 23.188000000000102
       }
     },
     "1835308383": {
@@ -793,7 +822,7 @@
         "transient": false,
         "exported": true,
         "token": "REQUEST",
-        "initTime": 29.793300000000272
+        "initTime": 24.14639999999963
       }
     },
     "1986699406": {
@@ -889,7 +918,7 @@
         "transient": true,
         "exported": true,
         "token": "INQUIRER",
-        "initTime": 29.777999999999793
+        "initTime": 24.128700000000208
       }
     },
     "-26938366": {
@@ -905,7 +934,7 @@
         "transient": false,
         "exported": true,
         "token": "ModulesContainer",
-        "initTime": 30.772699999999986
+        "initTime": 25.053399999999783
       }
     },
     "-326832201": {
@@ -921,7 +950,7 @@
         "transient": false,
         "exported": true,
         "token": "HttpAdapterHost",
-        "initTime": 30.752300000000105
+        "initTime": 25.034200000000055
       }
     },
     "-702581189": {
@@ -937,7 +966,7 @@
         "transient": false,
         "exported": true,
         "token": "LazyModuleLoader",
-        "initTime": 30.748999999999796
+        "initTime": 25.0309000000002
       }
     },
     "-1904419534": {
@@ -953,7 +982,7 @@
         "transient": false,
         "exported": true,
         "token": "SerializedGraph",
-        "initTime": 30.685499999999593
+        "initTime": 25.027900000000045
       }
     },
     "-19112576": {
@@ -980,7 +1009,7 @@
         "transient": false,
         "exported": false,
         "token": "AppModule",
-        "initTime": 30.69939999999997
+        "initTime": 25.015300000000025
       }
     },
     "-71302842": {
@@ -1028,7 +1057,7 @@
         "transient": false,
         "exported": false,
         "token": "AppService",
-        "initTime": 30.678100000000086
+        "initTime": 24.995100000000093
       }
     },
     "-326424510": {
@@ -1148,7 +1177,8 @@
         "static": true,
         "transient": false,
         "exported": true,
-        "token": "ConfigService"
+        "token": "ConfigService",
+        "initTime": 26.806099999999788
       }
     },
     "-1854488872": {
@@ -1201,7 +1231,7 @@
         "transient": false,
         "exported": false,
         "token": "MongooseCoreModule",
-        "initTime": 29.64980000000014
+        "initTime": 23.400300000000243
       }
     },
     "-2003726489": {
@@ -1228,7 +1258,7 @@
         "transient": false,
         "exported": false,
         "token": "UsersModule",
-        "initTime": 28.610799999999927
+        "initTime": 22.947400000000016
       }
     },
     "-618964563": {
@@ -1438,7 +1468,7 @@
         "transient": false,
         "exported": false,
         "token": "CommentModule",
-        "initTime": 27.329099999999926
+        "initTime": 22.405099999999948
       }
     },
     "-1466598780": {
@@ -1570,7 +1600,7 @@
         "transient": false,
         "exported": false,
         "token": "AuthModule",
-        "initTime": 26.333399999999983
+        "initTime": 22.107200000000375
       }
     },
     "-120792986": {
@@ -1870,6 +1900,21 @@
       },
       "id": "920687522"
     },
+    "956955918": {
+      "source": "1404752088",
+      "target": "513372681",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "AuthModule",
+        "sourceClassName": "AuthController",
+        "targetClassName": "JwtPasswordStrategy",
+        "sourceClassToken": "AuthController",
+        "targetClassToken": "JwtPasswordStrategy",
+        "targetModuleName": "AuthModule",
+        "injectionType": "decorator"
+      },
+      "id": "956955918"
+    },
     "978356204": {
       "source": "-1134487807",
       "target": "-536515674",
@@ -1985,6 +2030,38 @@
         "targetModuleName": "JwtModule"
       },
       "id": "1313870861"
+    },
+    "1346890576": {
+      "source": "233936880",
+      "target": "-2130614055",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "AppModule",
+        "sourceClassName": "AppController",
+        "targetClassName": "AppService",
+        "sourceClassToken": "AppController",
+        "targetClassToken": "AppService",
+        "targetModuleName": "AppModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1346890576"
+    },
+    "1475920902": {
+      "source": "-503631789",
+      "target": "930519593",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "ConfigModule",
+        "sourceClassName": "ConfigService",
+        "targetClassName": "ConfigService",
+        "sourceClassToken": "ConfigService",
+        "targetClassToken": "Symbol(CONFIG_SERVICE)",
+        "targetModuleName": "ConfigHostModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1475920902"
     },
     "1497086506": {
       "source": "1712628187",
@@ -2113,6 +2190,22 @@
         "internal": true
       },
       "id": "-1088946238"
+    },
+    "-951393523": {
+      "source": "930519593",
+      "target": "1063746662",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "ConfigHostModule",
+        "sourceClassName": "ConfigService",
+        "targetClassName": "CONFIGURATION_TOKEN",
+        "sourceClassToken": "Symbol(CONFIG_SERVICE)",
+        "targetClassToken": "CONFIGURATION_TOKEN",
+        "targetModuleName": "ConfigHostModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-951393523"
     },
     "-1650541783": {
       "source": "-19112576",
@@ -2579,21 +2672,20 @@
       },
       "id": "-967587463"
     },
-    "-951393523": {
-      "source": "930519593",
-      "target": "1063746662",
+    "-1840342948": {
+      "source": "1404752088",
+      "target": "513372681",
       "metadata": {
         "type": "class-to-class",
-        "sourceModuleName": "ConfigHostModule",
-        "sourceClassName": "ConfigService",
-        "targetClassName": "CONFIGURATION_TOKEN",
-        "sourceClassToken": "Symbol(CONFIG_SERVICE)",
-        "targetClassToken": "CONFIGURATION_TOKEN",
-        "targetModuleName": "ConfigHostModule",
-        "keyOrIndex": 0,
-        "injectionType": "constructor"
+        "sourceModuleName": "AuthModule",
+        "sourceClassName": "AuthController",
+        "targetClassName": "JwtPasswordStrategy",
+        "sourceClassToken": "AuthController",
+        "targetClassToken": "JwtPasswordStrategy",
+        "targetModuleName": "AuthModule",
+        "injectionType": "decorator"
       },
-      "id": "-951393523"
+      "id": "-1840342948"
     }
   },
   "entrypoints": {},
@@ -2604,17 +2696,12 @@
   "status": "partial",
   "metadata": {
     "cause": {
-      "type": "unknown-dependencies",
-      "context": {
-        "index": 1,
-        "dependencies": [
-          "UserModel",
-          "WorkoutService"
-        ],
-        "name": "WorkoutService"
-      },
-      "moduleId": "-2003726489",
-      "nodeId": "603011239"
+      "type": "unknown",
+      "error": {
+        "code": "ETIMEOUT",
+        "syscall": "querySrv",
+        "hostname": "_mongodb._tcp.routinery.eemgx.mongodb.net"
+      }
     }
   }
 }

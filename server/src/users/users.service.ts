@@ -15,8 +15,8 @@ export class UsersService {
 		return this.userModel.find();
 	}
 
-	getUserById(id: number) {
-		return this.userModel.find({ _id: id });
+	getUserById(id: string) {
+		return this.userModel.findOne({ _id: id }).select('-password');
 	}
 
 	getUserByUsername(username: string) {

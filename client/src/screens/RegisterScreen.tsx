@@ -27,7 +27,7 @@ const RegisterScreen = () => {
 			.catch((err) => {
 				const err_msg = Array.isArray(err?.response?.data?.message)
 					? err?.response?.data?.message[0]
-					: err?.response?.data?.message;
+					: err?.response?.data?.message || err.message;
 				toast.error(err_msg);
 				console.log(err);
 			});

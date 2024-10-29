@@ -21,7 +21,7 @@ export class UsersController {
 
 	@UseGuards(JwtPasswordStrategy)
 	@Get(':userId')
-	async getUserById(@Param('userId', ParseIntPipe) id: number) {
+	async getUserById(@Param('userId') id: string) {
 		return await this.userService.getUserById(id);
 	}
 

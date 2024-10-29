@@ -1,12 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	darkMode: 'media',
+	darkMode: 'class',
 	content: ['./src/**/*.{html,js,jsx,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				montserrat: ['montserrat-500', 'sans-seriff'],
+			},
+		},
 	},
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['light'],
+		themes: [
+			{
+				forest: {
+					...require('daisyui/src/theming/themes')['forest'],
+					'base-100': '#ffffff',
+				},
+			},
+		],
 	},
 };

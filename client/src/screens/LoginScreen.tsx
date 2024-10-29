@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useStore } from '../zustand/zustand';
 
 const LoginScreen = () => {
 	const [loginForm, setLoginForm] = useState({});
+	const nav = useNavigate();
+	const setUser = useStore((state) => state.setUser);
 
 	const handleInputChanges = (e: any) => {
 		setLoginForm((form) => ({ ...form, [e.target.name]: e.target.value }));
@@ -14,7 +17,8 @@ const LoginScreen = () => {
 		axios
 			.post('api/auth/login', loginForm)
 			.then((res) => {
-				console.log(res);
+				setUser(res.data);
+				nav('/');
 			})
 			.catch((err) => console.log(err));
 	};
@@ -28,7 +32,7 @@ const LoginScreen = () => {
 							Login
 						</h1>
 						<div>
-							<label className="text-sm md:text-lg">Username</label>
+							<label className="text-sm md:text-base">Username</label>
 							<input
 								type="text"
 								name="username"
@@ -37,7 +41,7 @@ const LoginScreen = () => {
 							/>
 						</div>
 						<div>
-							<label className="text-sm md:text-lg">Password</label>
+							<label className="text-sm md:text-base">Password</label>
 							<input
 								type="password"
 								name="password"
@@ -47,7 +51,7 @@ const LoginScreen = () => {
 						</div>
 						<button
 							type="submit"
-							className="btn btn-success text-white w-full mt-4 text-sm md:text-md"
+							className="btn btn-secondary text-white w-full mt-4 text-sm md:text-md"
 						>
 							Log in
 						</button>

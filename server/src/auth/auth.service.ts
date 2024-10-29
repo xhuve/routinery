@@ -10,12 +10,7 @@ export class AuthService {
 		private jwtService: JwtService,
 	) {}
 
-	async signJwtToken(user: {
-		id?: number;
-		username: string;
-		password: string;
-		email?: string;
-	}) {
+	async signJwtToken(user: { id: string; username: string }) {
 		const tokenPayload = {
 			sub: user.id,
 			username: user.username,
@@ -25,8 +20,13 @@ export class AuthService {
 	}
 
 	async validateUser(userDetails: { username: string; password: string }) {
+		console.log('🚀 ~ AuthService ~ validateUser ~ userDetails:', userDetails);
 		const user = await this.userService.getUserByUsername(userDetails.username);
-		if (!user || !(await bcrypt.compare(userDetails.password, user.password))) {
+		const isCorrectPassword = await bcrypt.compare(
+			userDetails.password,
+			user.password,
+		);
+		if (!user || !isCorrectPassword) {
 			throw new HttpException('Invalid Credentials', HttpStatus.UNAUTHORIZED);
 		}
 
@@ -47,19 +47,24 @@ export class AuthService {
 			throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
 		}
 
-		const accessToken = this.signJwtToken(userDetails);
 		const newUser = await this.userService.createUser({
 			...userDetails,
 			password,
+		});
+		const accessToken = this.signJwtToken({
+			id: newUser._id.toString(),
+			username: newUser.username,
 		});
 		return { newUser, accessToken };
 	}
 
 	async login(userDetails: { username: string; password: string }) {
-		console.log(userDetails);
 		const user = await this.validateUser(userDetails);
 
-		const accessToken = await this.signJwtToken(userDetails);
+		const accessToken = await this.signJwtToken({
+			id: user._id.toString(),
+			username: user.username,
+		});
 		return { user, accessToken };
 	}
 }

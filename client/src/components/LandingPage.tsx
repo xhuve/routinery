@@ -18,7 +18,7 @@ const LandingPage = () => {
 						Your personal guide to consistent workouts, tailored
 						<br /> routines, and fitness success.
 					</p>
-					<button className="btn btn-lg btn-success hover:bg-green-600 text-white">
+					<button className="btn btn-lg btn-secondary hover:bg-green-600 text-white">
 						Get Started
 					</button>
 				</div>
@@ -69,7 +69,7 @@ const LandingPage = () => {
 
 			<div className="w-full text-center p-8 bg-green-100 rounded-md">
 				<h2 className="text-3xl mb-5">Ready to Take the First Step?</h2>
-				<button className="btn btn-lg btn-success hover:bg-green-600 text-white">
+				<button className="btn btn-lg btn-secondary hover:bg-green-600 text-white">
 					Register Now
 				</button>
 			</div>
