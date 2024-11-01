@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useStore } from '../zustand/zustand';
+import { userStore } from '../zustand/zustand';
 
 const LoginScreen = () => {
 	const [loginForm, setLoginForm] = useState({});
 	const nav = useNavigate();
-	const setUser = useStore((state) => state.setUser);
+	const setUser = userStore((state) => state.setUser);
 
 	const handleInputChanges = (e: any) => {
 		setLoginForm((form) => ({ ...form, [e.target.name]: e.target.value }));
@@ -15,7 +15,7 @@ const LoginScreen = () => {
 	const submitHandler = (e: any) => {
 		e.preventDefault();
 		axios
-			.post('api/auth/login', loginForm)
+			.post('/api/auth/login', loginForm)
 			.then((res) => {
 				setUser(res.data);
 				nav('/');

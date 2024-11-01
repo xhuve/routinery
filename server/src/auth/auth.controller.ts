@@ -48,11 +48,11 @@ export class AuthController {
 		return user;
 	}
 
-	@Post('logout')
+	@Get('logout')
 	@UseGuards(JwtPasswordStrategy)
-	logout(@Res() response: Response) {
-		response.cookie('jwt', '', { httpOnly: true, expires: new Date(0) });
-		return response.send({ message: 'Logged out successfully' });
+	logout(@Res({ passthrough: true }) response: Response) {
+		response.cookie('user_token', '', { httpOnly: true, expires: new Date(0) });
+		return response.send('Logged out successfully');
 	}
 
 	@Get('me')

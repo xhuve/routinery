@@ -1,10 +1,25 @@
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { useStore } from '../zustand/zustand';
+import { userStore } from '../zustand/zustand';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 	const nav = useNavigate();
-	const user = useStore((state) => state.user);
+	const user = userStore((state) => state.user);
+	const removeUser = userStore((state) => state.removeUser);
+
+	const handleLogout = () => {
+		console.log('test');
+		axios
+			.get('api/auth/logout', { withCredentials: true })
+			.then((res) => {
+				console.log(res);
+				toast.success(res.data);
+				removeUser();
+			})
+			.catch((err) => console.log(err));
+	};
 
 	return (
 		<>
@@ -23,12 +38,16 @@ const Navbar = () => {
 								<img src={user.profilePicture} />
 							</div>
 						</div>
-						<ul className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
+						<ul className="menu menu-sm font-normal dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
 							<li>
-								<Link to={'/profile'}>Profile</Link>
+								<Link className="text-lg" to={'/profile'}>
+									Profile
+								</Link>
 							</li>
 							<li>
-								<Link to={''}>Logout</Link>
+								<button className="text-lg" onClick={handleLogout}>
+									Logout
+								</button>
 							</li>
 						</ul>
 					</div>
@@ -51,7 +70,6 @@ const Navbar = () => {
 			</div>
 		</>
 	);
-	console.log('🚀 ~ Navbar ~ user:', user);
 };
 
 export default Navbar;

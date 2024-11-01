@@ -4,8 +4,11 @@ import { Types } from 'mongoose';
 
 export type ExerciseDocument = Exercise & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Exercise {
+	@Prop({ required: true })
+	exercisePicture: string;
+
 	@Prop({ required: true })
 	name: string;
 
@@ -15,7 +18,7 @@ export class Exercise {
 	@Prop({ default: null })
 	length: number;
 
-	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }] })
+	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }], required: false })
 	workouts: Types.ObjectId[];
 }
 

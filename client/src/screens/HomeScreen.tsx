@@ -1,12 +1,11 @@
 import HomePage from '../components/HomePage';
 import LandingPage from '../components/LandingPage';
-import { useStore } from '../zustand/zustand';
+import { userStore } from '../zustand/zustand';
 
 const HomeScreen = () => {
-	const userInfo = useStore((state: any) => state.user);
-	console.log('🚀 ~ HomeScreen ~ userInfo:', userInfo);
+	const userInfo = userStore((state: any) => state.user);
 
-	return userInfo ? <HomePage /> : <LandingPage />;
+	return userInfo ? <HomePage user={userInfo} /> : <LandingPage />;
 };
 
 export default HomeScreen;

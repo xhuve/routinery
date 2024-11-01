@@ -2,6 +2,7 @@ import hero from '../assets/hero.jpg';
 import section1 from '../assets/hero-section-1.jpg';
 import section2 from '../assets/hero-section-2.jpg';
 import section3 from '../assets/hero-section-3.jpg';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
 	return (
@@ -18,19 +19,22 @@ const LandingPage = () => {
 						Your personal guide to consistent workouts, tailored
 						<br /> routines, and fitness success.
 					</p>
-					<button className="btn btn-lg btn-secondary hover:bg-green-600 text-white">
+					<Link
+						to="/register"
+						className="btn btn-lg btn-secondary hover:bg-green-600 text-white"
+					>
 						Get Started
-					</button>
+					</Link>
 				</div>
 			</div>
 
-			<div className="flex flex-col lg:flex-row items-center mx-10 space-y-8  lg:space-y-0 lg:space-x-32">
+			<div className="flex flex-col lg:flex-row t items-center mx-10 space-y-8  lg:space-y-0 lg:space-x-32">
 				<img
 					className="h-1/3 w-4/5 lg:w-2/5 lg:h-1/4 rounded-lg"
 					src={section1}
 					alt="Section 1"
 				/>
-				<div className="text-center px-8">
+				<div className="text-center px-8 ">
 					Stay committed to your fitness goals with Routinery. Our personalized
 					workout routines keep you on track, while progress tracking and
 					reminders ensure you stay accountable every step of the way. No more

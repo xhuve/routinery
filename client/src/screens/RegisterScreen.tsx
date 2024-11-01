@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useStore } from '../zustand/zustand';
+import { userStore } from '../zustand/zustand';
 import { Link } from 'react-router-dom';
 
 const RegisterScreen = () => {
 	const [registerForm, setRegisterForm] = useState({});
-	const setUser = useStore((state) => state.setUser);
+	const setUser = userStore((state) => state.setUser);
 
 	const handleInputChanges = (e: {
 		target: { value: string; name: string };
@@ -18,7 +18,7 @@ const RegisterScreen = () => {
 		e.preventDefault();
 		console.log(registerForm);
 		axios
-			.post('api/auth/register', registerForm)
+			.post('/api/auth/register', registerForm)
 			.then((res) => {
 				console.log(res);
 				toast.success('Successfully registered!');
