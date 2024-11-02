@@ -28,7 +28,7 @@ export class ExerciseService {
 			};
 
 		return {
-			exercises: await paginationExercises.find({}),
+			exercises: await paginationExercises,
 			totalItems: await this.exerciseModel.countDocuments(),
 		};
 	}

@@ -14,8 +14,20 @@ export class WorkoutService {
 		@InjectModel(Comment.name) private commentModel: Model<Comment>,
 	) {}
 
-	getWorkouts() {
-		return this.workoutModel.find({}).populate(['exercises', 'comments']);
+	async getWorkouts(pageNumber: number, userId: string) {
+		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
+
+		const workoutPagination = await this.workoutModel
+			.find({ $or: [{ creator: userId }, { creator: 'admin' }] })
+			.limit(pageLimit)
+			.skip(pageLimit * pageNumber)
+			.populate(['exercises', 'comments']);
+
+		const totalWorkouts = await this.workoutModel.countDocuments({
+			$or: [{ creator: userId }, { creator: 'admin' }],
+		});
+
+		return { workouts: workoutPagination, totalWorkouts };
 	}
 
 	getWorkoutById(workoutId: number) {
@@ -38,7 +50,7 @@ export class WorkoutService {
 		return await workout.save();
 	}
 
-	async deleteWorkout(id: number) {
+	async deleteWorkout(id: string) {
 		await this.workoutModel.deleteOne({ _id: id });
 	}
 }

@@ -27,11 +27,15 @@ export class ExerciseController {
 		pageNumber: number,
 		@Query('type', new DefaultValuePipe('')) exerciseType: string,
 	) {
-		const { exercises, totalItems } = await this.exerciseService.getExercises(
-			pageNumber,
-			exerciseType,
-		);
-		return { exercises, totalItems };
+		try {
+			const { exercises, totalItems } = await this.exerciseService.getExercises(
+				pageNumber,
+				exerciseType,
+			);
+			return { exercises, totalItems };
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	@Post()

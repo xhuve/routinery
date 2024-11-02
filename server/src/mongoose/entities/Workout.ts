@@ -11,6 +11,9 @@ export class Workout {
 	@Prop({ required: true })
 	length: number;
 
+	@Prop({ required: false, default: 'admin' })
+	creator: string;
+
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Exercise' }] })
 	exercises: Types.ObjectId[];
 
