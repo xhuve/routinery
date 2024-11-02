@@ -230,6 +230,13 @@ export class ExerciseSeeder {
 					workouts: [new Types.ObjectId()],
 					exercisePicture: 'a',
 				},
+				{
+					name: 'Calf Stretch',
+					type: 'Flexibility',
+					length: 10,
+					workouts: [new Types.ObjectId()],
+					exercisePicture: 'a',
+				},
 			];
 
 			exercises.sort(() => Math.random() - 0.5);

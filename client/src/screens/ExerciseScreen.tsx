@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import exercisePlaceholder from '../assets/exercise-placeholder.jpg';
 
 const ExerciseScreen = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [exercises, setExercises] = useState([]);
+	const [activePage, setActivePage] = useState(0);
+	const [type, setActiveType] = useState('All');
 	const [width, setWidth] = useState(window.innerWidth);
 	const [pages, setPages] = useState(0);
 	const [searchParams, setSearchParam] = useSearchParams();
@@ -30,7 +33,7 @@ const ExerciseScreen = () => {
 				console.log(res);
 				setLoading(false);
 				setExercises(res.data.exercises);
-				setPages(res.data.totalItems / 10);
+				setPages(Math.ceil(res.data.totalItems / 10));
 			})
 			.catch((err) => {
 				console.log(err);
@@ -53,8 +56,12 @@ const ExerciseScreen = () => {
 							(x) => (
 								<li>
 									<a
+										className={`btn ${type === x ? 'btn-active' : ''}`}
 										onClick={() => {
-											setSearchParam({ ...searchParams, type: x });
+											searchParams.set('type', x);
+											searchParams.set('pageNumber', '0');
+											setSearchParam(searchParams);
+											setActiveType(x);
 										}}
 									>
 										{x}
@@ -71,7 +78,7 @@ const ExerciseScreen = () => {
 								<figure>
 									<img
 										className="image-full"
-										src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+										src={exercisePlaceholder}
 										alt="Shoes"
 									/>
 								</figure>
@@ -88,9 +95,13 @@ const ExerciseScreen = () => {
 					<div className="join self-center">
 						{[...Array(pages).keys()].map((x) => (
 							<a
-								className="join-item btn"
+								className={`join-item btn  ${
+									activePage == x ? 'btn-active' : ''
+								}`}
 								onClick={() => {
-									setSearchParam({ ...searchParams, pageNumber: x.toString() });
+									setActivePage(x);
+									searchParams.set('pageNumber', x.toString());
+									setSearchParam(searchParams);
 								}}
 							>
 								{x}

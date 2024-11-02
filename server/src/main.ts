@@ -11,7 +11,7 @@ import * as cookieParser from 'cookie-parser';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+	const app = await NestFactory.create(AppModule, {});
 
 	app.use(cookieParser());
 	app.useGlobalPipes(new ValidationPipe());
@@ -37,3 +37,7 @@ async function bootstrap() {
 	console.log('Api Running');
 	await app.listen(3000);
 }
+bootstrap().catch((err) => {
+	console.log('🚀 ~ err:', err);
+	process.exit(1);
+});
