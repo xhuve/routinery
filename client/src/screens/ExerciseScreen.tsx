@@ -4,6 +4,8 @@ import Loader from '../components/Loader';
 import { useSearchParams } from 'react-router-dom';
 import exercisePlaceholder from '../assets/exercise-placeholder.jpg';
 import { exerciseStore } from '../zustand/zustand';
+import RemoveExerciseFromWorkoutButton from '../components/RemoveExerciseFromWorkoutButton';
+import AddExerciseToWorkoutButton from '../components/AddExerciseToWorkoutButton';
 
 const ExerciseScreen = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ const ExerciseScreen = () => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const [pages, setPages] = useState(0);
 	const [searchParams, setSearchParam] = useSearchParams();
-	const setWorkoutExercises = exerciseStore((state) => state.setExercises);
+	const workoutExercises = exerciseStore((state) => state.exercises);
 	const exerciseType = searchParams.get('type');
 	const pageNumber = searchParams.get('pageNumber');
 	const addingToWorkout = searchParams.get('workout');
@@ -45,6 +47,7 @@ const ExerciseScreen = () => {
 
 	useEffect(() => {
 		handleExerciseRequest();
+		console.log(workoutExercises);
 	}, [searchParams]);
 
 	return isLoading ? (
@@ -93,13 +96,13 @@ const ExerciseScreen = () => {
 											<button className="btn btn-sm btn-primary">
 												More details
 											</button>
-											{addingToWorkout ? (
-												<button
-													onClick={() => setWorkoutExercises(exercise._id)}
-													className="btn btn-primary"
-												>
-													Add to workout
-												</button>
+											{addingToWorkout &&
+											!workoutExercises?.includes(exercise._id) ? (
+												<AddExerciseToWorkoutButton exerciseId={exercise._id} />
+											) : workoutExercises?.includes(exercise._id) ? (
+												<RemoveExerciseFromWorkoutButton
+													exerciseId={exercise._id}
+												/>
 											) : null}
 										</div>
 									</div>

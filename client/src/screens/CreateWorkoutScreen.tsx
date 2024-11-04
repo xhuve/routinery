@@ -22,7 +22,7 @@ export const CreateWorkoutScreen = () => {
 	};
 
 	return (
-		<div className="max-w-2xl mx-auto p-8">
+		<div className="max-w-2xl w-full mx-auto p-8">
 			<h2 className="text-2xl font-bold text-center mb-8">
 				Create New Workout
 			</h2>
@@ -46,16 +46,9 @@ export const CreateWorkoutScreen = () => {
 
 				<div className="w-full mt-4">
 					<label className="label">
-						<span className="label-text">Duration (minutes)</span>
+						<span className="label-text">Upload Image</span>
 					</label>
 					<input
-						value={workoutData.durationInMinutes}
-						onChange={(e) =>
-							setWorkoutData({
-								...workoutData,
-								durationInMinutes: Number(e.target.value),
-							})
-						}
 						placeholder="Enter duration"
 						className="input input-bordered w-full"
 						required

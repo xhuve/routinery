@@ -42,6 +42,10 @@ export class WorkoutService {
 			id: { $in: newWorkout.comments || [] },
 		});
 
+		newWorkout.durationInMinutes = exercises.reduce((acc, curr) => {
+			return acc + curr.length;
+		}, 0);
+
 		const workout = await this.workoutModel.create({
 			...newWorkout,
 			exercises,

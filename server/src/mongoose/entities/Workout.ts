@@ -38,10 +38,3 @@ export class Workout {
 }
 
 export const WorkoutSchema = SchemaFactory.createForClass(Workout);
-
-WorkoutSchema.pre('save', async function (next) {
-	const workout = this as WorkoutDocument;
-	const exercises = await workout.populate('exercises');
-	console.log(exercises);
-	next();
-});

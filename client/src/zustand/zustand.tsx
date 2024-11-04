@@ -23,17 +23,22 @@ export const userStore = create<StoreState>()((set) => ({
 
 interface ExerciseStoreState {
 	exercises: string[] | null;
-	setExercises: (exerciseDetails: string) => void;
-	removeExercises: () => void;
+	setExercise: (exerciseDetails: string) => void;
+	removeExercise: (exerciseId: string) => void;
+	removeAllExercises: () => void;
 }
 
 export const exerciseStore = create<ExerciseStoreState>()((set) => ({
 	exercises: null,
-	setExercises: (exerciseIds: string) =>
+	setExercise: (exerciseIds: string) =>
 		set((state) => ({
 			exercises: state.exercises
-				? [...state.exercises, ...exerciseIds]
-				: [...exerciseIds],
+				? [...state.exercises, exerciseIds]
+				: [exerciseIds],
 		})),
-	removeExercises: () => set({ exercises: null }),
+	removeExercise: (exerciseId: string) =>
+		set((state) => ({
+			exercises: state.exercises?.filter((value) => value !== exerciseId),
+		})),
+	removeAllExercises: () => set({ exercises: null }),
 }));
