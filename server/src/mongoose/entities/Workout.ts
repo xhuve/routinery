@@ -6,7 +6,7 @@ export type WorkoutDocument = Workout & Document;
 enum STATUS {
 	PENDING = 'Pending',
 	COMPLETED = 'Completed',
-	CANCELLED = 'Canceled',
+	CANCELLED = 'Cancelled',
 }
 
 @Schema({ timestamps: true })
@@ -17,8 +17,12 @@ export class Workout {
 	@Prop({ required: true })
 	durationInMinutes: number;
 
-	@Prop({ required: true, default: 'admin' })
-	creator: string;
+	@Prop({
+		type: [{ type: Types.ObjectId, ref: 'User' }],
+		required: true,
+		default: 'admin',
+	})
+	creator: Types.ObjectId;
 
 	@Prop({ required: false })
 	startTime: Date;
@@ -34,3 +38,10 @@ export class Workout {
 }
 
 export const WorkoutSchema = SchemaFactory.createForClass(Workout);
+
+WorkoutSchema.pre('save', async function (next) {
+	const workout = this as WorkoutDocument;
+	const exercises = await workout.populate('exercises');
+	console.log(exercises);
+	next();
+});

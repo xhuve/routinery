@@ -14,6 +14,7 @@ import App from './App.tsx';
 import PrivateRoute from './components/PrivateRoute.tsx';
 import ExerciseScreen from './screens/ExerciseScreen.tsx';
 import WorkoutScreen from './screens/WorkoutScreen.tsx';
+import { CreateWorkoutScreen } from './screens/CreateWorkoutScreen.tsx';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 			<Route path="/login" element={<LoginScreen />} />
 			<Route path="/register" element={<RegisterScreen />} />
 			<Route path="/" element={<PrivateRoute />}>
+				<Route path="/create-workout" element={<CreateWorkoutScreen />} />
 				<Route path="/exercises" element={<ExerciseScreen />} />
 				<Route path="/workouts" element={<WorkoutScreen />} />
 			</Route>

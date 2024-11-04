@@ -16,8 +16,8 @@ import { Workout, WorkoutSchema } from './mongoose/entities/Workout';
 
 @Module({
 	imports: [
-		WorkoutModule,
 		ConfigModule.forRoot(),
+		WorkoutModule,
 		MongooseModule.forRoot(process.env.MONGO_URI),
 		MongooseModule.forFeature([
 			{ name: Exercise.name, schema: ExerciseSchema },
@@ -45,6 +45,7 @@ export class AppModule {
 	async onModuleInit() {
 		await this.exerciseSeeder.removeExercises();
 		await this.exerciseSeeder.seedExercises();
+		await this.workoutSeeder.removeWorkout();
 		await this.workoutSeeder.seedWorkout();
 	}
 }

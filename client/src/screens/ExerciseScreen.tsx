@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Loader from '../components/Loader';
 import { useSearchParams } from 'react-router-dom';
 import exercisePlaceholder from '../assets/exercise-placeholder.jpg';
+import { exerciseStore } from '../zustand/zustand';
 
 const ExerciseScreen = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -12,8 +13,10 @@ const ExerciseScreen = () => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const [pages, setPages] = useState(0);
 	const [searchParams, setSearchParam] = useSearchParams();
+	const setWorkoutExercises = exerciseStore((state) => state.setExercises);
 	const exerciseType = searchParams.get('type');
 	const pageNumber = searchParams.get('pageNumber');
+	const addingToWorkout = searchParams.get('workout');
 
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
@@ -73,24 +76,36 @@ const ExerciseScreen = () => {
 				) : null}
 				<div className="flex flex-col gap-5 w-full">
 					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-						{exercises.map((exercise: { name: string; type: string }) => (
-							<div className="card bg-base-100 w-56 shadow-xl">
-								<figure>
-									<img
-										className="image-full"
-										src={exercisePlaceholder}
-										alt="Shoes"
-									/>
-								</figure>
-								<div className="card-body">
-									<h2 className="card-title">{exercise.name}</h2>
-									<p>Type: {exercise.type}</p>
-									<div className="card-actions justify-end">
-										<button className="btn btn-primary">Buy Now</button>
+						{exercises.map(
+							(exercise: { _id: string; name: string; type: string }) => (
+								<div className="card bg-base-100 w-56 shadow-xl">
+									<figure>
+										<img
+											className="image-full"
+											src={exercisePlaceholder}
+											alt="exercise"
+										/>
+									</figure>
+									<div className="card-body">
+										<h2 className="card-title">{exercise.name}</h2>
+										<p>Type: {exercise.type}</p>
+										<div className="card-actions justify-end">
+											<button className="btn btn-sm btn-primary">
+												More details
+											</button>
+											{addingToWorkout ? (
+												<button
+													onClick={() => setWorkoutExercises(exercise._id)}
+													className="btn btn-primary"
+												>
+													Add to workout
+												</button>
+											) : null}
+										</div>
 									</div>
 								</div>
-							</div>
-						))}
+							),
+						)}
 					</div>
 					<div className="join self-center">
 						{[...Array(pages).keys()].map((x) => (

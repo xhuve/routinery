@@ -20,3 +20,20 @@ export const userStore = create<StoreState>()((set) => ({
 	setUser: (userDetails: userDetails) => set({ user: userDetails }),
 	removeUser: () => set({ user: null }),
 }));
+
+interface ExerciseStoreState {
+	exercises: string[] | null;
+	setExercises: (exerciseDetails: string) => void;
+	removeExercises: () => void;
+}
+
+export const exerciseStore = create<ExerciseStoreState>()((set) => ({
+	exercises: null,
+	setExercises: (exerciseIds: string) =>
+		set((state) => ({
+			exercises: state.exercises
+				? [...state.exercises, ...exerciseIds]
+				: [...exerciseIds],
+		})),
+	removeExercises: () => set({ exercises: null }),
+}));

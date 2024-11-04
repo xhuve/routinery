@@ -27,7 +27,7 @@ export class WorkoutSeeder {
 				{
 					name: 'Strength Training Circuit',
 					durationInMinutes: 60,
-					creator: 'john_doe',
+					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-05T18:00:00Z'),
 					status: 'Completed',
 					exercises: [
@@ -42,7 +42,7 @@ export class WorkoutSeeder {
 					durationInMinutes: 30,
 					creator: 'admin',
 					startTime: new Date('2024-11-06T20:00:00Z'),
-					status: 'Canceled',
+					status: 'Cancelled',
 					exercises: [new Types.ObjectId()],
 					comments: [new Types.ObjectId(), new Types.ObjectId()],
 				},
@@ -85,9 +85,9 @@ export class WorkoutSeeder {
 				{
 					name: 'Evening Relaxation Yoga',
 					durationInMinutes: 45,
-					creator: 'yoga_lover',
+					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-07T19:00:00Z'),
-					status: 'Canceled',
+					status: 'Cancelled',
 					exercises: [new Types.ObjectId()],
 					comments: [],
 				},
@@ -155,7 +155,7 @@ export class WorkoutSeeder {
 					durationInMinutes: 55,
 					creator: 'trainer_jane',
 					startTime: new Date('2024-11-10T17:00:00Z'),
-					status: 'Canceled',
+					status: 'Cancelled',
 					exercises: [
 						new Types.ObjectId(),
 						new Types.ObjectId(),
@@ -198,7 +198,7 @@ export class WorkoutSeeder {
 				{
 					name: 'Late Night Yoga',
 					durationInMinutes: 30,
-					creator: 'yoga_lover',
+					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-12T22:00:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId()],
@@ -209,7 +209,7 @@ export class WorkoutSeeder {
 					durationInMinutes: 45,
 					creator: 'trainer_sam',
 					startTime: new Date('2024-11-12T10:30:00Z'),
-					status: 'Canceled',
+					status: 'Cancelled',
 					exercises: [
 						new Types.ObjectId(),
 						new Types.ObjectId(),
@@ -226,8 +226,74 @@ export class WorkoutSeeder {
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
 					comments: [new Types.ObjectId(), new Types.ObjectId()],
 				},
+				{
+					name: 'High-Intensity Core',
+					durationInMinutes: 35,
+					creator: 'admin',
+					startTime: new Date('2024-11-14T07:00:00Z'),
+					status: 'Pending',
+					exercises: [
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+					],
+					comments: [],
+				},
+				{
+					name: 'Recovery and Mobility',
+					durationInMinutes: 40,
+					creator: 'admin',
+					startTime: new Date('2024-11-14T15:30:00Z'),
+					status: 'Pending',
+					exercises: [new Types.ObjectId(), new Types.ObjectId()],
+					comments: [new Types.ObjectId()],
+				},
+				{
+					name: 'Endurance Training',
+					durationInMinutes: 90,
+					creator: 'admin',
+					startTime: new Date('2024-11-15T08:00:00Z'),
+					status: 'Pending',
+					exercises: [
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+					],
+					comments: [],
+				},
+				{
+					name: 'Functional Fitness',
+					durationInMinutes: 50,
+					creator: 'admin',
+					startTime: new Date('2024-11-15T16:00:00Z'),
+					status: 'Pending',
+					exercises: [new Types.ObjectId(), new Types.ObjectId()],
+					comments: [],
+				},
+				{
+					name: 'Weekend Warriors Workout',
+					durationInMinutes: 75,
+					creator: 'admin',
+					startTime: new Date('2024-11-16T09:00:00Z'),
+					status: 'Pending',
+					exercises: [
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+					],
+					comments: [new Types.ObjectId()],
+				},
 			];
 			this.workoutModel.insertMany(workoutSeedData);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async removeWorkout() {
+		try {
+			await this.workoutModel.deleteMany({});
 		} catch (error) {
 			console.log(error);
 		}
