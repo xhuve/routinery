@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
+	IsDate,
 	IsNumber,
 	IsOptional,
 	IsString,
@@ -17,6 +18,10 @@ export class CreateWorkoutDto {
 	@IsNumber()
 	@ApiProperty()
 	length: number;
+
+	@IsDate()
+	@ApiProperty()
+	workoutTime: Date;
 
 	@ValidateNested({ each: true })
 	@Type(() => CreateExerciseDto)

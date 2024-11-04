@@ -3,16 +3,28 @@ import { Document, Types } from 'mongoose';
 
 export type WorkoutDocument = Workout & Document;
 
+enum STATUS {
+	PENDING = 'Pending',
+	COMPLETED = 'Completed',
+	CANCELLED = 'Canceled',
+}
+
 @Schema({ timestamps: true })
 export class Workout {
 	@Prop({ required: true })
 	name: string;
 
 	@Prop({ required: true })
-	length: number;
+	durationInMinutes: number;
 
-	@Prop({ required: false, default: 'admin' })
+	@Prop({ required: true, default: 'admin' })
 	creator: string;
+
+	@Prop({ required: false })
+	startTime: Date;
+
+	@Prop({ default: STATUS.PENDING })
+	status: STATUS;
 
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Exercise' }] })
 	exercises: Types.ObjectId[];

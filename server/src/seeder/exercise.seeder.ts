@@ -86,8 +86,6 @@ export class ExerciseSeeder {
 					workouts: [new Types.ObjectId()],
 					exercisePicture: 'a',
 				},
-
-				// Cardio exercises
 				{
 					name: 'Running',
 					type: 'Cardio',
@@ -158,8 +156,6 @@ export class ExerciseSeeder {
 					workouts: [new Types.ObjectId()],
 					exercisePicture: 'a',
 				},
-
-				// Flexibility exercises
 				{
 					name: 'Yoga',
 					type: 'Flexibility',
