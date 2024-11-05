@@ -81,7 +81,14 @@ const ExerciseScreen = () => {
 					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
 						{exercises.map(
 							(exercise: { _id: string; name: string; type: string }) => (
-								<div className="card bg-base-100 w-56 shadow-xl">
+								<div className="card bg-base-100 w-56 shadow-xl flex">
+									{addingToWorkout &&
+									workoutExercises &&
+									workoutExercises.includes(exercise._id) ? (
+										<div className="badge badge-primary badge-lg self-end absolute top-2 right-2">
+											{workoutExercises.indexOf(exercise._id) + 1}
+										</div>
+									) : null}
 									<figure>
 										<img
 											className="image-full"
@@ -97,13 +104,15 @@ const ExerciseScreen = () => {
 												More details
 											</button>
 											{addingToWorkout &&
-											!workoutExercises?.includes(exercise._id) ? (
-												<AddExerciseToWorkoutButton exerciseId={exercise._id} />
-											) : workoutExercises?.includes(exercise._id) ? (
-												<RemoveExerciseFromWorkoutButton
-													exerciseId={exercise._id}
-												/>
-											) : null}
+												(!workoutExercises?.includes(exercise._id) ? (
+													<AddExerciseToWorkoutButton
+														exerciseId={exercise._id}
+													/>
+												) : (
+													<RemoveExerciseFromWorkoutButton
+														exerciseId={exercise._id}
+													/>
+												))}
 										</div>
 									</div>
 								</div>

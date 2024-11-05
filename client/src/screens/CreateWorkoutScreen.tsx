@@ -1,5 +1,8 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { exerciseStore } from '../zustand/zustand';
+import toast from 'react-hot-toast';
 
 enum STATUS {
 	PENDING = 'Pending',
@@ -8,6 +11,8 @@ enum STATUS {
 }
 
 export const CreateWorkoutScreen = () => {
+	const exercises = exerciseStore((state) => state.exercises);
+
 	const [workoutData, setWorkoutData] = useState({
 		name: '',
 		durationInMinutes: 0,
@@ -18,7 +23,11 @@ export const CreateWorkoutScreen = () => {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// ... handle form submission
+
+		if (exercises) setWorkoutData({ ...workoutData, exercises: exercises });
+		else return toast.error('Cannot create workout without exercises');
+
+		axios.post('/api/workout', workoutData).then((res) => {});
 	};
 
 	return (
@@ -44,51 +53,18 @@ export const CreateWorkoutScreen = () => {
 					/>
 				</div>
 
-				<div className="w-full mt-4">
+				<div className="w-full flex flex-col mt-4">
 					<label className="label">
 						<span className="label-text">Upload Image</span>
 					</label>
 					<input
+						type="file"
 						placeholder="Enter duration"
-						className="input input-bordered w-full"
+						className="input input-bordered file: file:p-3
+						file:rounded-full file:border-0 file:text-sm
+						file:font-semibold file:text-secondary hover:file:bg-violet-100"
 						required
 					/>
-				</div>
-
-				<div className="form-control w-full mt-4">
-					<label className="label">
-						<span className="label-text">Start Time</span>
-					</label>
-					<input
-						type="datetime-local"
-						value={workoutData.startTime}
-						onChange={(e) =>
-							setWorkoutData({ ...workoutData, startTime: e.target.value })
-						}
-						className="input input-bordered w-full"
-					/>
-				</div>
-
-				<div className="form-control w-full mt-4">
-					<label className="label">
-						<span className="label-text">Status</span>
-					</label>
-					<select
-						value={workoutData.status}
-						onChange={(e) =>
-							setWorkoutData({
-								...workoutData,
-								status: e.target.value as STATUS,
-							})
-						}
-						className="select select-bordered w-full"
-					>
-						{Object.values(STATUS).map((status) => (
-							<option key={status} value={status}>
-								{status}
-							</option>
-						))}
-					</select>
 				</div>
 
 				<div className="form-control w-full mt-4">
