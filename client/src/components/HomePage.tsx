@@ -19,11 +19,11 @@ const HomePage = ({
 			<div className="flex flex-col lg:flex-row gap-6 p-6 max-w-6xl mx-auto">
 				<div className="card w-full lg:w-1/2 bg-primary text-primary-content hover:shadow-xl transition-shadow">
 					<div className="card-body items-center text-center">
-						<h2 className="card-title text-3xl">Workouts</h2>
+						<h2 className="card-title text-3xl">My Workouts</h2>
 						<p>Create and track your workouts</p>
 						<div className="card-actions justify-end">
 							<Link className="btn btn-white" to="/workouts">
-								View Workouts
+								View Your Workouts
 							</Link>
 						</div>
 					</div>
@@ -36,6 +36,17 @@ const HomePage = ({
 						<div className="card-actions justify-end">
 							<Link className="btn btn-white" to="/exercises">
 								View Exercises
+							</Link>
+						</div>
+					</div>
+				</div>
+				<div className="card w-full lg:w-1/2 bg-primary text-secondary-content hover:shadow-xl transition-shadow">
+					<div className="card-body items-center text-center">
+						<h2 className="card-title text-3xl">Workouts</h2>
+						<p>Browse workout library</p>
+						<div className="card-actions justify-end">
+							<Link className="btn btn-white" to="/workout-library">
+								View Workouts
 							</Link>
 						</div>
 					</div>

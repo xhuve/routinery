@@ -23,6 +23,10 @@ export class UsersService {
 		return this.userModel.findOne({ username });
 	}
 
+	getUserWorkouts(userId: string) {
+		return this.userModel.findOne({ _id: userId }).populate('myWorkouts');
+	}
+
 	async createUser(userDetails: {
 		username: string;
 		password: string;
@@ -48,17 +52,19 @@ export class UsersService {
 		await this.userModel.deleteOne({ _id: id });
 	}
 
-	async addToWorkoutHistory(workoutId: number, userId: number) {
-		const workout = await this.workoutService.getWorkoutById(workoutId);
+	async addWorkout(userId: string, workoutIds: string[]) {
+		const workout = await this.workoutService.getWorkoutsById(workoutIds);
 		const currentUser = await this.userModel
 			.findOne({ id: userId })
-			.populate('workoutHistory');
+			.populate('myWorkouts');
 
 		if (!currentUser) {
 			throw new Error('User not found');
 		}
 
-		currentUser.workoutHistory.unshift(workout._id);
+		workout.map((x) => {
+			currentUser.myWorkouts.unshift(x._id);
+		});
 
 		currentUser.save();
 

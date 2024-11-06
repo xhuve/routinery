@@ -27,7 +27,7 @@ export class User {
 	activeStreak: number;
 
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }] })
-	workoutHistory: Types.ObjectId[];
+	myWorkouts: Types.ObjectId[];
 
 	updatedAt: Date;
 

@@ -43,4 +43,13 @@ export class UsersController {
 	async deleteByUserId(@Param('id', ParseIntPipe) id: number) {
 		await this.userService.deleteUser(id);
 	}
+
+	@UseGuards(JwtPasswordStrategy)
+	@Post(':userId/workouts')
+	async addWorkout(
+		@Param('userId') userId: string,
+		@Body('workoutIds') workoutIds: string[],
+	) {
+		await this.userService.addWorkout(userId, workoutIds);
+	}
 }

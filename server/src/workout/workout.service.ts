@@ -33,8 +33,8 @@ export class WorkoutService {
 		return { workouts: workoutPagination, totalWorkouts };
 	}
 
-	getWorkoutById(workoutId: number) {
-		return this.workoutModel.findOne({ _id: workoutId });
+	getWorkoutsById(workoutIds: string[]) {
+		return this.workoutModel.find({ _id: { $in: workoutIds } });
 	}
 
 	async createWorkout(newWorkout: CreateWorkoutDto) {
