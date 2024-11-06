@@ -21,13 +21,27 @@ export const CreateWorkoutScreen = () => {
 		exercises: [] as string[],
 	});
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		if (exercises) setWorkoutData({ ...workoutData, exercises: exercises });
-		else return toast.error('Cannot create workout without exercises');
+		if (!exercises?.length)
+			return toast.error('Cannot create workout without exercises');
 
-		axios.post('/api/workout', workoutData).then((res) => {});
+		try {
+			console.log(exercises);
+
+			const updatedWorkout = {
+				...workoutData,
+				exercises: exercises,
+			};
+			console.log(updatedWorkout);
+			const result = await axios.post('/api/workout', updatedWorkout);
+			console.log(result);
+			toast.success('Workout created successfully');
+		} catch (error: any) {
+			console.log(error);
+			toast.error(error?.response?.data?.message || 'failed to create workout');
+		}
 	};
 
 	return (
@@ -63,7 +77,6 @@ export const CreateWorkoutScreen = () => {
 						className="input input-bordered file: file:p-3
 						file:rounded-full file:border-0 file:text-sm
 						file:font-semibold file:text-secondary hover:file:bg-violet-100"
-						required
 					/>
 				</div>
 

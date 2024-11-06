@@ -25,7 +25,6 @@ export class WorkoutController {
 	@Get()
 	@UseGuards(JwtPasswordStrategy)
 	@ApiQuery({ name: 'pageNumber', required: false })
-	@ApiQuery({ name: 'type', required: false })
 	async getWorkouts(
 		@Req() request: Request,
 		@Query('pageNumber', new DefaultValuePipe(0), ParseIntPipe)

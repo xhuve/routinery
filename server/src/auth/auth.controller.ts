@@ -59,6 +59,11 @@ export class AuthController {
 	@UseGuards(JwtPasswordStrategy)
 	async getUserInfo(@Req() request: Request) {
 		const user = request.user as { userId: string; username: string };
-		return await this.userService.getUserById(user.userId);
+		const userData = await this.userService.getUserById(user.userId);
+		if (userData.updatedAt > new Date()) {
+			userData.activeStreak = 0;
+			userData.totalWorkouts = 0;
+		}
+		return userData;
 	}
 }

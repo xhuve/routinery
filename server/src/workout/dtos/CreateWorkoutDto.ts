@@ -19,28 +19,15 @@ export class CreateWorkoutDto {
 	@ApiProperty()
 	name: string;
 
-	@IsNumber()
-	@IsEmpty()
 	durationInMinutes: number;
 
-	@IsDate()
-	@ApiProperty()
-	startTime: Date;
-
-	@IsString()
-	@ValidateNested()
-	@ApiProperty()
 	creator: Types.ObjectId;
 
-	@ValidateNested({ each: true })
-	@Type(() => CreateExerciseDto)
 	@ApiProperty({ type: [CreateExerciseDto] })
 	@IsOptional()
-	exercises: CreateExerciseDto[];
+	exercises: string[];
 
-	@ValidateNested({ each: true })
-	@Type(() => CreateCommentDto)
 	@ApiProperty({ type: [CreateCommentDto] })
 	@IsOptional()
-	comments: CreateCommentDto[];
+	comments: string[];
 }

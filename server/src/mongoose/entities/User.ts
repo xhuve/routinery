@@ -20,8 +20,18 @@ export class User {
 	@Prop({ required: true })
 	profilePicture: string;
 
+	@Prop({ default: 0 })
+	totalWorkouts: number;
+
+	@Prop({ default: 0 })
+	activeStreak: number;
+
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }] })
 	workoutHistory: Types.ObjectId[];
+
+	updatedAt: Date;
+
+	createdAt: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

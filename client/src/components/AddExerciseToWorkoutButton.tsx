@@ -8,7 +8,7 @@ const AddExerciseToWorkoutButton = ({ exerciseId }: { exerciseId: string }) => {
 			onClick={() => setWorkoutExercises(exerciseId)}
 			className="btn btn-primary"
 		>
-			Add to workout
+			Add
 		</button>
 	);
 };

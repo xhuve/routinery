@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import exercisePlaceholder from '../assets/exercise-placeholder.jpg';
 import { exerciseStore } from '../zustand/zustand';
 import RemoveExerciseFromWorkoutButton from '../components/RemoveExerciseFromWorkoutButton';
@@ -54,10 +54,21 @@ const ExerciseScreen = () => {
 		<Loader />
 	) : (
 		<div className="w-full h-full">
-			<h2 className="text-4xl font-bold text-center mt-3">Exercises</h2>
+			<h2 className="text-4xl font-bold mt-3">
+				<div className="text-center">Exercises</div>
+			</h2>
+			{addingToWorkout && (
+				<Link
+					to="/create-workout"
+					className="btn  btn-secondary btn-outline ml-5"
+				>
+					Go Back
+				</Link>
+			)}
 			<div className="bg-gray-50 rounded-lg flex mt-5 w-full md:w-[95%] mx-auto p-5">
+				<div className=""></div>
 				{width >= 768 ? (
-					<ul className="menu menu-md rounded-box w-56">
+					<ul className="menu menu-md rounded-box w-48">
 						{Array.from(['All', 'Strength', 'Cardio', 'Flexibility']).map(
 							(x) => (
 								<li>
@@ -77,14 +88,13 @@ const ExerciseScreen = () => {
 						)}
 					</ul>
 				) : null}
-				<div className="flex flex-col gap-5 w-full">
+				<div className="flex flex-col gap-7 w-full">
 					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
 						{exercises.map(
 							(exercise: { _id: string; name: string; type: string }) => (
-								<div className="card bg-base-100 w-56 shadow-xl flex">
+								<div className="card bg-base-100 w-54 md:w-60 shadow-lg flex">
 									{addingToWorkout &&
-									workoutExercises &&
-									workoutExercises.includes(exercise._id) ? (
+									workoutExercises?.includes(exercise._id) ? (
 										<div className="badge badge-primary badge-lg self-end absolute top-2 right-2">
 											{workoutExercises.indexOf(exercise._id) + 1}
 										</div>
@@ -98,11 +108,11 @@ const ExerciseScreen = () => {
 									</figure>
 									<div className="card-body">
 										<h2 className="card-title">{exercise.name}</h2>
-										<p>Type: {exercise.type}</p>
-										<div className="card-actions justify-end">
-											<button className="btn btn-sm btn-primary">
-												More details
-											</button>
+										<div className="card-body p-0">
+											<p>Type: {exercise.type}</p>
+											<a className="font-semibold underline">More details</a>
+										</div>
+										<div className="card-actions align-bottom">
 											{addingToWorkout &&
 												(!workoutExercises?.includes(exercise._id) ? (
 													<AddExerciseToWorkoutButton

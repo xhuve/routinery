@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Workout } from 'src/mongoose/entities/Workout';
 import { CreateWorkoutDto } from './dtos/CreateWorkoutDto';
 import { Exercise } from 'src/mongoose/entities/Exercise';
 import { Comment } from 'src/mongoose/entities/Comment';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { ObjectId } from 'typeorm';
 
 @Injectable()
 export class WorkoutService {
@@ -13,6 +14,8 @@ export class WorkoutService {
 		@InjectModel(Exercise.name) private exerciseModel: Model<Exercise>,
 		@InjectModel(Comment.name) private commentModel: Model<Comment>,
 	) {}
+
+	private readonly logger = new Logger(WorkoutService.name);
 
 	async getWorkouts(pageNumber: number, userId: string) {
 		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
@@ -35,11 +38,18 @@ export class WorkoutService {
 	}
 
 	async createWorkout(newWorkout: CreateWorkoutDto) {
+		const exercisesObjectIds = newWorkout.exercises.map(
+			(x) => new mongoose.Types.ObjectId(x),
+		);
+
 		const exercises = await this.exerciseModel.find({
-			id: { $in: newWorkout.exercises || [] },
+			_id: {
+				$in: exercisesObjectIds,
+			},
 		});
+
 		const comments = await this.commentModel.find({
-			id: { $in: newWorkout.comments || [] },
+			_id: { $in: newWorkout.comments || [] },
 		});
 
 		newWorkout.durationInMinutes = exercises.reduce((acc, curr) => {
@@ -56,5 +66,12 @@ export class WorkoutService {
 
 	async deleteWorkout(id: string) {
 		await this.workoutModel.deleteOne({ _id: id });
+	}
+
+	async updateWorkout(workoutId: string, workoutData: CreateWorkoutDto) {
+		await this.workoutModel.updateOne(
+			{ _id: workoutId },
+			{ $set: workoutData },
+		);
 	}
 }

@@ -12,7 +12,7 @@ const RemoveExerciseFromWorkoutButton = ({
 			onClick={() => removeExercise(exerciseId)}
 			className="btn btn-outline btn-error"
 		>
-			Remove from workout
+			Remove
 		</button>
 	);
 };
