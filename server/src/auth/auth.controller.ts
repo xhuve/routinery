@@ -60,10 +60,19 @@ export class AuthController {
 	async getUserInfo(@Req() request: Request) {
 		const user = request.user as { userId: string; username: string };
 		const userData = await this.userService.getUserById(user.userId);
-		if (userData.updatedAt > new Date()) {
+
+		if (
+			new Date().getTime() >=
+			new Date(userData.updatedAt).getTime() * 1000 * 60 * 60 * 24 * 2
+		)
 			userData.activeStreak = 0;
-			userData.totalWorkouts = 0;
-		}
+		else if (
+			new Date().getTime() >=
+			new Date(userData.updatedAt).getTime() * 1000 * 60 * 60 * 24
+		)
+			userData.activeStreak = userData.activeStreak + 1;
+
+		await userData.save();
 		return userData;
 	}
 }

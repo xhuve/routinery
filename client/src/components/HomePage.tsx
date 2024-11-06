@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 
-const HomePage = ({ user }: { user: { username: string } }) => {
+const HomePage = ({
+	user,
+}: {
+	user: { username: string; activeStreak: number };
+}) => {
 	return (
 		<div className="justify-center bg-base-200 h-full">
 			<div className="hero min-h-[30vh] bg-base-100">
@@ -47,12 +51,7 @@ const HomePage = ({ user }: { user: { username: string } }) => {
 
 					<div className="stat">
 						<div className="stat-title">Active Streak</div>
-						<div className="stat-value">0</div>
-					</div>
-
-					<div className="stat">
-						<div className="stat-title">Personal Records</div>
-						<div className="stat-value">0</div>
+						<div className="stat-value">{user?.activeStreak}</div>
 					</div>
 				</div>
 			</div>
