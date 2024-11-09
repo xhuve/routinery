@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import mongoose, { Model, ObjectId } from 'mongoose';
 import { User } from 'src/mongoose/entities/User';
 import { WorkoutService } from 'src/workout/workout.service';
 
@@ -8,7 +8,7 @@ import { WorkoutService } from 'src/workout/workout.service';
 export class UsersService {
 	constructor(
 		@InjectModel(User.name) private userModel: Model<User>,
-		private workoutService: WorkoutService,
+		private readonly workoutService: WorkoutService,
 	) {}
 
 	getUsers() {
@@ -42,32 +42,28 @@ export class UsersService {
 	}
 
 	updateUser(
-		userId: number,
-		userDetails: { username: string; password: string; email: string },
+		userId: string,
+		userDetails: {
+			username: string;
+			password: string;
+			email: string;
+			myWorkouts: string[] | null;
+		},
 	) {
+		if (userDetails.myWorkouts) {
+			const ObjectIDWorkouts = userDetails.myWorkouts.map(
+				(x) => new mongoose.Types.ObjectId(x),
+			);
+
+			return this.userModel.findOneAndUpdate(
+				{ _id: userId },
+				{ ...userDetails, myWorkouts: ObjectIDWorkouts },
+			);
+		}
 		return this.userModel.findOneAndUpdate({ _id: userId }, { ...userDetails });
 	}
 
-	async deleteUser(id: number) {
+	async deleteUser(id: string) {
 		await this.userModel.deleteOne({ _id: id });
-	}
-
-	async addWorkout(userId: string, workoutIds: string[]) {
-		const workout = await this.workoutService.getWorkoutsById(workoutIds);
-		const currentUser = await this.userModel
-			.findOne({ id: userId })
-			.populate('myWorkouts');
-
-		if (!currentUser) {
-			throw new Error('User not found');
-		}
-
-		workout.map((x) => {
-			currentUser.myWorkouts.unshift(x._id);
-		});
-
-		currentUser.save();
-
-		return workout;
 	}
 }

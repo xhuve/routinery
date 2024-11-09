@@ -21,9 +21,6 @@ export class User {
 	profilePicture: string;
 
 	@Prop({ default: 0 })
-	totalWorkouts: number;
-
-	@Prop({ default: 0 })
 	activeStreak: number;
 
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }] })

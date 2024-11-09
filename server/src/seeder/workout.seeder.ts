@@ -18,7 +18,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Morning Cardio Blast',
 					durationInMinutes: 45,
-					creator: 'admin',
 					startTime: new Date('2024-11-05T06:00:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -27,7 +26,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Strength Training Circuit',
 					durationInMinutes: 60,
-					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-05T18:00:00Z'),
 					status: 'Completed',
 					exercises: [
@@ -40,7 +38,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Evening Yoga Session',
 					durationInMinutes: 30,
-					creator: 'admin',
 					startTime: new Date('2024-11-06T20:00:00Z'),
 					status: 'Cancelled',
 					exercises: [new Types.ObjectId()],
@@ -49,7 +46,6 @@ export class WorkoutSeeder {
 				{
 					name: 'HIIT Power Hour',
 					durationInMinutes: 60,
-					creator: 'trainer_jane',
 					startTime: new Date('2024-11-07T07:30:00Z'),
 					status: 'Pending',
 					exercises: [
@@ -63,7 +59,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Full Body Stretch',
 					durationInMinutes: 20,
-					creator: 'admin',
 					startTime: new Date('2024-11-07T10:00:00Z'),
 					status: 'Completed',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -72,7 +67,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Lunchtime Core Workout',
 					durationInMinutes: 30,
-					creator: 'fit_fanatic',
 					startTime: new Date('2024-11-07T12:00:00Z'),
 					status: 'Pending',
 					exercises: [
@@ -85,7 +79,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Evening Relaxation Yoga',
 					durationInMinutes: 45,
-					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-07T19:00:00Z'),
 					status: 'Cancelled',
 					exercises: [new Types.ObjectId()],
@@ -94,7 +87,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Upper Body Strength',
 					durationInMinutes: 50,
-					creator: 'trainer_sam',
 					startTime: new Date('2024-11-08T08:00:00Z'),
 					status: 'Completed',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -103,7 +95,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Quick Morning Routine',
 					durationInMinutes: 15,
-					creator: 'admin',
 					startTime: new Date('2024-11-08T06:30:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -112,7 +103,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Full-Body Cardio',
 					durationInMinutes: 60,
-					creator: 'admin',
 					startTime: new Date('2024-11-09T09:00:00Z'),
 					status: 'Pending',
 					exercises: [
@@ -126,7 +116,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Power Lifting Session',
 					durationInMinutes: 90,
-					creator: 'strength_coach',
 					startTime: new Date('2024-11-09T15:00:00Z'),
 					status: 'Completed',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -135,7 +124,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Evening Cardio Burnout',
 					durationInMinutes: 40,
-					creator: 'cardio_king',
 					startTime: new Date('2024-11-09T18:30:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId()],
@@ -144,7 +132,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Advanced Yoga Flow',
 					durationInMinutes: 75,
-					creator: 'yoga_guru',
 					startTime: new Date('2024-11-10T07:00:00Z'),
 					status: 'Completed',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -153,7 +140,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Dynamic Strength Training',
 					durationInMinutes: 55,
-					creator: 'trainer_jane',
 					startTime: new Date('2024-11-10T17:00:00Z'),
 					status: 'Cancelled',
 					exercises: [
@@ -166,7 +152,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Morning Meditation & Stretch',
 					durationInMinutes: 25,
-					creator: 'meditation_master',
 					startTime: new Date('2024-11-11T06:15:00Z'),
 					status: 'Completed',
 					exercises: [],
@@ -175,7 +160,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Afternoon Mobility Session',
 					durationInMinutes: 40,
-					creator: 'mobility_pro',
 					startTime: new Date('2024-11-11T13:00:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -184,7 +168,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Evening Bootcamp',
 					durationInMinutes: 60,
-					creator: 'admin',
 					startTime: new Date('2024-11-11T18:30:00Z'),
 					status: 'Completed',
 					exercises: [
@@ -198,7 +181,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Late Night Yoga',
 					durationInMinutes: 30,
-					creator: new Types.ObjectId(),
 					startTime: new Date('2024-11-12T22:00:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId()],
@@ -207,7 +189,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Circuit Training',
 					durationInMinutes: 45,
-					creator: 'trainer_sam',
 					startTime: new Date('2024-11-12T10:30:00Z'),
 					status: 'Cancelled',
 					exercises: [
@@ -220,7 +201,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Cardio & Strength Combo',
 					durationInMinutes: 70,
-					creator: 'admin',
 					startTime: new Date('2024-11-13T08:00:00Z'),
 					status: 'Completed',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -229,7 +209,6 @@ export class WorkoutSeeder {
 				{
 					name: 'High-Intensity Core',
 					durationInMinutes: 35,
-					creator: 'admin',
 					startTime: new Date('2024-11-14T07:00:00Z'),
 					status: 'Pending',
 					exercises: [
@@ -242,7 +221,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Recovery and Mobility',
 					durationInMinutes: 40,
-					creator: 'admin',
 					startTime: new Date('2024-11-14T15:30:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -251,7 +229,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Endurance Training',
 					durationInMinutes: 90,
-					creator: 'admin',
 					startTime: new Date('2024-11-15T08:00:00Z'),
 					status: 'Pending',
 					exercises: [
@@ -265,7 +242,6 @@ export class WorkoutSeeder {
 				{
 					name: 'Functional Fitness',
 					durationInMinutes: 50,
-					creator: 'admin',
 					startTime: new Date('2024-11-15T16:00:00Z'),
 					status: 'Pending',
 					exercises: [new Types.ObjectId(), new Types.ObjectId()],
@@ -274,7 +250,19 @@ export class WorkoutSeeder {
 				{
 					name: 'Weekend Warriors Workout',
 					durationInMinutes: 75,
-					creator: 'admin',
+					startTime: new Date('2024-11-16T09:00:00Z'),
+					status: 'Pending',
+					exercises: [
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+						new Types.ObjectId(),
+					],
+					comments: [new Types.ObjectId()],
+				},
+				{
+					name: 'Weekend',
+					durationInMinutes: 75,
+					creator: new Types.ObjectId('671b6e722940dccfe17fda67'),
 					startTime: new Date('2024-11-16T09:00:00Z'),
 					status: 'Pending',
 					exercises: [

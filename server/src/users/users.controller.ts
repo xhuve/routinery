@@ -32,7 +32,7 @@ export class UsersController {
 
 	@Put(':id')
 	async updateUserById(
-		@Param('id', ParseIntPipe) id: number,
+		@Param('id') id: string,
 		@Body() updateUserDto: UpdateUserDto,
 	) {
 		await this.userService.updateUser(id, updateUserDto);
@@ -40,16 +40,7 @@ export class UsersController {
 
 	@UseGuards(JwtPasswordStrategy)
 	@Delete(':id')
-	async deleteByUserId(@Param('id', ParseIntPipe) id: number) {
+	async deleteByUserId(@Param('id') id: string) {
 		await this.userService.deleteUser(id);
-	}
-
-	@UseGuards(JwtPasswordStrategy)
-	@Post(':userId/workouts')
-	async addWorkout(
-		@Param('userId') userId: string,
-		@Body('workoutIds') workoutIds: string[],
-	) {
-		await this.userService.addWorkout(userId, workoutIds);
 	}
 }

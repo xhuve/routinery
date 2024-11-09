@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import mongoose, { Document, Types } from 'mongoose';
 
 export type WorkoutDocument = Workout & Document;
 
-enum STATUS {
+export enum STATUS {
 	PENDING = 'Pending',
 	COMPLETED = 'Completed',
 	CANCELLED = 'Cancelled',
@@ -18,11 +18,12 @@ export class Workout {
 	durationInMinutes: number;
 
 	@Prop({
-		type: [{ type: Types.ObjectId, ref: 'User' }],
-		required: true,
-		default: 'admin',
+		type: Types.ObjectId,
+		ref: 'User',
+		required: false,
+		default: null,
 	})
-	creator: Types.ObjectId;
+	creator: Types.ObjectId | null;
 
 	@Prop({ required: false })
 	startTime: Date;

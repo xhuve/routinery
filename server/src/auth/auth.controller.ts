@@ -8,7 +8,7 @@ import {
 	Res,
 	UseGuards,
 } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import { RegisterDto } from './dtos/RegisterDto';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dtos/LoginDto';
@@ -61,16 +61,27 @@ export class AuthController {
 		const user = request.user as { userId: string; username: string };
 		const userData = await this.userService.getUserById(user.userId);
 
-		if (
-			new Date().getTime() >=
-			new Date(userData.updatedAt).getTime() * 1000 * 60 * 60 * 24 * 2
-		)
+		const { updatedAt } = userData;
+		const resetStreak =
+			updatedAt.getTime() + 1000 * 60 * 60 * 24 * 2 < Date.now();
+		// if updatedTime + 2 days is smaller than the current time, it means that
+		// the user has logged in earlier than 2 days, which means that the streak continues and doesnt end
+		// otherwise activeStreak = 0
+		const continueStreak =
+			updatedAt.getTime() + 1000 * 60 * 60 * 24 > Date.now();
+		// if updatedAt + 1 day is more than the current time, it means that the user has
+		// consecutively logged in 2 times in a row
+
+		// previous implementation was stupid as hell, also this doesnt seem like the best option
+		// to add a lastLogin date attribute would be wiser
+
+		if (resetStreak) {
+			console.log('reset');
 			userData.activeStreak = 0;
-		else if (
-			new Date().getTime() >=
-			new Date(userData.updatedAt).getTime() * 1000 * 60 * 60 * 24
-		)
+		} else if (continueStreak) {
+			console.log('increase');
 			userData.activeStreak = userData.activeStreak + 1;
+		}
 
 		await userData.save();
 		return userData;

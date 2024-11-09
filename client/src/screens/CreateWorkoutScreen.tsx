@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { exerciseStore } from '../zustand/zustand';
+import { exerciseStore, userStore } from '../zustand/zustand';
 import toast from 'react-hot-toast';
 
 enum STATUS {
@@ -12,6 +12,7 @@ enum STATUS {
 
 export const CreateWorkoutScreen = () => {
 	const exercises = exerciseStore((state) => state.exercises);
+	const user = userStore((state) => state.user);
 
 	const [workoutData, setWorkoutData] = useState({
 		name: '',
@@ -30,14 +31,16 @@ export const CreateWorkoutScreen = () => {
 		try {
 			console.log(exercises);
 
-			const updatedWorkout = {
+			const workoutWithExercises = {
 				...workoutData,
 				exercises: exercises,
 			};
-			console.log(updatedWorkout);
-			const result = await axios.post('/api/workout', updatedWorkout);
-			console.log(result);
-			toast.success('Workout created successfully');
+
+			axios.post('/api/workout', {
+				...workoutWithExercises,
+				creator: user?._id,
+			}),
+				toast.success('Workout created successfully');
 		} catch (error: any) {
 			console.log(error);
 			toast.error(error?.response?.data?.message || 'failed to create workout');

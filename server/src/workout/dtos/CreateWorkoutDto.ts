@@ -1,18 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import {
-	IsDate,
-	IsEmpty,
-	IsMongoId,
-	IsNumber,
-	IsOptional,
-	IsString,
-	ValidateNested,
-} from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 import { CreateExerciseDto } from 'src/exercise/dtos/CreateExerciseDto';
 import { CreateCommentDto } from 'src/comment/dtos/CreateCommentDto';
 import { Types } from 'mongoose';
-import { User } from 'src/mongoose/entities/User';
 
 export class CreateWorkoutDto {
 	@IsString()
@@ -21,7 +11,7 @@ export class CreateWorkoutDto {
 
 	durationInMinutes: number;
 
-	creator: Types.ObjectId;
+	creator: Types.ObjectId | null;
 
 	@ApiProperty({ type: [CreateExerciseDto] })
 	@IsOptional()

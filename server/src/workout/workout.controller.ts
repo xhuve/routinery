@@ -22,17 +22,36 @@ import { Request } from 'express';
 export class WorkoutController {
 	constructor(private workoutService: WorkoutService) {}
 
+	@UseGuards(JwtPasswordStrategy)
 	@Get()
+	async getAllWorkouts(
+		@Query('pageNumber', new DefaultValuePipe(0), ParseIntPipe)
+		pageNumber: number,
+	) {
+		const workouts = await this.workoutService.getAllWorkouts(pageNumber);
+		console.log(workouts);
+
+		return workouts;
+	}
+
+	@Get('user')
 	@UseGuards(JwtPasswordStrategy)
 	@ApiQuery({ name: 'pageNumber', required: false })
-	async getWorkouts(
+	async getUserWorkouts(
 		@Req() request: Request,
 		@Query('pageNumber', new DefaultValuePipe(0), ParseIntPipe)
 		pageNumber: number,
 	) {
 		try {
 			const { userId } = request.user as { userId: string };
-			return await this.workoutService.getWorkouts(pageNumber, userId);
+			const workouts = await this.workoutService.getUserWorkouts(
+				pageNumber,
+				userId,
+			);
+
+			console.log(workouts);
+
+			return workouts;
 		} catch (error) {
 			console.log(error);
 		}

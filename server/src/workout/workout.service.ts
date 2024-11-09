@@ -1,11 +1,11 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Workout } from 'src/mongoose/entities/Workout';
 import { CreateWorkoutDto } from './dtos/CreateWorkoutDto';
 import { Exercise } from 'src/mongoose/entities/Exercise';
 import { Comment } from 'src/mongoose/entities/Comment';
 import mongoose, { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { ObjectId } from 'typeorm';
+import { User } from 'src/mongoose/entities/User';
 
 @Injectable()
 export class WorkoutService {
@@ -13,24 +13,47 @@ export class WorkoutService {
 		@InjectModel(Workout.name) private workoutModel: Model<Workout>,
 		@InjectModel(Exercise.name) private exerciseModel: Model<Exercise>,
 		@InjectModel(Comment.name) private commentModel: Model<Comment>,
+		@InjectModel(User.name) private userModel: Model<User>,
 	) {}
 
-	private readonly logger = new Logger(WorkoutService.name);
-
-	async getWorkouts(pageNumber: number, userId: string) {
+	async getAllWorkouts(pageNumber: number) {
 		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
 
 		const workoutPagination = await this.workoutModel
-			.find({ $or: [{ creator: userId }, { creator: 'admin' }] })
+			.find({})
 			.limit(pageLimit)
 			.skip(pageLimit * pageNumber)
-			.populate(['exercises', 'comments']);
+			.populate(['exercises', 'comments'])
+			.populate({
+				path: 'creator',
+			});
 
-		const totalWorkouts = await this.workoutModel.countDocuments({
-			$or: [{ creator: userId }, { creator: 'admin' }],
-		});
+		const totalWorkouts = await this.workoutModel.countDocuments({});
 
-		return { workouts: workoutPagination, totalWorkouts };
+		return {
+			workouts: workoutPagination,
+			totalWorkouts: totalWorkouts,
+		};
+	}
+
+	async getUserWorkouts(pageNumber: number, userId: string) {
+		console.log(userId);
+		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
+		if (!mongoose.Types.ObjectId.isValid(userId)) {
+			throw new Error('Invalid user ID format');
+		}
+
+		const workoutPagination = await this.userModel
+			.findById({ _id: userId })
+			.populate('myWorkouts')
+			.limit(pageLimit)
+			.skip(pageLimit * pageNumber);
+
+		console.log(workoutPagination);
+
+		return {
+			workouts: workoutPagination.myWorkouts,
+		};
 	}
 
 	getWorkoutsById(workoutIds: string[]) {
@@ -38,15 +61,15 @@ export class WorkoutService {
 	}
 
 	async createWorkout(newWorkout: CreateWorkoutDto) {
-		const exercisesObjectIds = newWorkout.exercises.map(
-			(x) => new mongoose.Types.ObjectId(x),
-		);
-
 		const exercises = await this.exerciseModel.find({
 			_id: {
-				$in: exercisesObjectIds,
+				$in: newWorkout.exercises,
 			},
 		});
+
+		const currentUser = await this.userModel
+			.findOne({ _id: newWorkout.creator })
+			.populate('myWorkouts');
 
 		const comments = await this.commentModel.find({
 			_id: { $in: newWorkout.comments || [] },
@@ -60,7 +83,12 @@ export class WorkoutService {
 			...newWorkout,
 			exercises,
 			comments,
+			creator: currentUser._id,
 		});
+
+		currentUser.myWorkouts.unshift(workout._id);
+		currentUser.save();
+
 		return await workout.save();
 	}
 

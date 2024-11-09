@@ -25,20 +25,20 @@ export class CommentController {
 	}
 
 	@Get('/workout/:workoutId')
-	getComment(@Param('workoutId', ParseIntPipe) workoutId: number) {
+	getComment(@Param('workoutId') workoutId: string) {
 		return this.commentService.getWorkoutComments(workoutId);
 	}
 
 	@Post('/workout/:workoutId')
 	addWorkoutComment(
-		@Param('workoutId', ParseIntPipe) id: number,
+		@Param('workoutId') id: string,
 		@Body() addCommentDto: CreateCommentDto,
 	) {
 		return this.commentService.addWorkoutComment(id, addCommentDto);
 	}
 
 	@Delete(':commentId')
-	deleteComment(@Param('commentId', ParseIntPipe) commentId: number) {
+	deleteComment(@Param('commentId') commentId: string) {
 		this.commentService.deleteComment(commentId);
 	}
 }

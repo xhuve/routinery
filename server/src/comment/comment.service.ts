@@ -1,10 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Model } from 'mongoose';
 import { Comment } from 'src/mongoose/entities/Comment';
 import { Workout } from 'src/mongoose/entities/Workout';
-import { Repository } from 'typeorm';
 
 @Injectable()
 export class CommentService {
@@ -17,11 +15,9 @@ export class CommentService {
 		return await this.commentModel.find();
 	}
 
-	async getWorkoutComments(id: number) {
-		const workout = await this.workoutModel.findOne({
-			where: { id },
-			relations: ['comments'],
-		});
+	async getWorkoutComments(id: string) {
+		const workout = await this.workoutModel.findById(id).populate('comments');
+
 		if (!workout)
 			throw new HttpException('Workout not found.', HttpStatus.BAD_REQUEST);
 
@@ -29,16 +25,17 @@ export class CommentService {
 	}
 
 	async addWorkoutComment(
-		workoutId: number,
+		workoutId: string,
 		workoutComment: {
 			content: string;
 			author: string;
 		},
 	) {
-		const workout = await this.workoutModel.findOne({
-			where: { id: workoutId },
-			relations: ['comments'],
-		});
+		const workout = await this.workoutModel
+			.findById({
+				id: workoutId,
+			})
+			.populate(['comments']);
 		if (!workout) {
 			throw new HttpException(
 				'Workout not found, cannot add comment.',
@@ -57,7 +54,7 @@ export class CommentService {
 		return await workout.save();
 	}
 
-	async deleteComment(id: number) {
+	async deleteComment(id: string) {
 		this.commentModel.deleteOne({ id });
 	}
 }
