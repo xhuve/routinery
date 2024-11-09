@@ -43,9 +43,9 @@ export class AppModule {
 	) {}
 
 	async onModuleInit() {
-		await this.exerciseSeeder.removeExercises();
-		await this.exerciseSeeder.seedExercises();
-		await this.workoutSeeder.removeWorkout();
-		await this.workoutSeeder.seedWorkout();
+		// await this.exerciseSeeder.removeExercises();
+		// await this.exerciseSeeder.seedExercises();
+		// await this.workoutSeeder.removeWorkout();
+		// await this.workoutSeeder.seedWorkout();
 	}
 }

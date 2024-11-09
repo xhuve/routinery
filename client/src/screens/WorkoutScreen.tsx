@@ -30,9 +30,7 @@ const WorkoutScreen = () => {
 			.then((res) => {
 				console.log(res);
 				setLoading(false);
-				setPages(
-					Math.ceil(res.data.workouts ? res.data.workouts.length / 10 : 0),
-				);
+				setPages(Math.ceil(res.data.totalWorkouts / 10));
 				setWorkouts(res.data.workouts);
 			})
 			.catch((err) => {

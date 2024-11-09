@@ -29,8 +29,6 @@ export const CreateWorkoutScreen = () => {
 			return toast.error('Cannot create workout without exercises');
 
 		try {
-			console.log(exercises);
-
 			const workoutWithExercises = {
 				...workoutData,
 				exercises: exercises,

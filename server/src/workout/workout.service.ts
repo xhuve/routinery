@@ -37,21 +37,26 @@ export class WorkoutService {
 	}
 
 	async getUserWorkouts(pageNumber: number, userId: string) {
-		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
 		if (!mongoose.Types.ObjectId.isValid(userId)) {
 			throw new Error('Invalid user ID format');
 		}
 
-		const workoutPagination = await this.userModel
-			.findById({ _id: userId })
-			.populate(['myWorkouts'])
+		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
+		const workoutPagination = await this.workoutModel
+			.find({ creator: { $in: [new mongoose.Types.ObjectId(userId), null] } })
 			.limit(pageLimit)
-			.skip(pageLimit * pageNumber);
+			.skip(pageLimit * pageNumber)
+			.populate(['exercises', 'comments']);
 
 		console.log(workoutPagination);
 
+		const totalWorkouts = await this.workoutModel.countDocuments({
+			$or: [{ creator: userId }, { creator: null }],
+		});
+
 		return {
-			workouts: workoutPagination.myWorkouts,
+			workouts: workoutPagination,
+			totalWorkouts: totalWorkouts,
 		};
 	}
 
@@ -68,7 +73,7 @@ export class WorkoutService {
 
 		const currentUser = await this.userModel
 			.findOne({ _id: newWorkout.creator })
-			.populate('myWorkouts');
+			.populate(['myWorkouts']);
 
 		const comments = await this.commentModel.find({
 			_id: { $in: newWorkout.comments || [] },
@@ -86,7 +91,7 @@ export class WorkoutService {
 		});
 
 		currentUser.myWorkouts.unshift(workout._id);
-		currentUser.save();
+		await currentUser.save();
 
 		return await workout.save();
 	}
