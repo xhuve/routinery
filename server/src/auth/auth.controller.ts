@@ -15,6 +15,7 @@ import { LoginDto } from './dtos/LoginDto';
 import { Request, Response } from 'express';
 import { JwtPasswordStrategy } from './guards/passport-jwt.guard';
 import { UsersService } from 'src/users/users.service';
+import { UserWithDates } from 'src/mongoose/entities/User';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -61,26 +62,27 @@ export class AuthController {
 		const user = request.user as { userId: string; username: string };
 		const userData = await this.userService.getUserById(user.userId);
 
-		const { updatedAt } = userData;
+		const { lastLogin } = userData;
+
 		const resetStreak =
-			updatedAt.getTime() + 1000 * 60 * 60 * 24 * 2 < Date.now();
+			lastLogin.getTime() + 1000 * 60 * 60 * 24 * 2 < Date.now();
 		// if updatedTime + 2 days is smaller than the current time, it means that
 		// the user has logged in earlier than 2 days, which means that the streak continues and doesnt end
 		// otherwise activeStreak = 0
+
 		const continueStreak =
-			updatedAt.getTime() + 1000 * 60 * 60 * 24 > Date.now();
+			lastLogin.getTime() + 1000 * 60 * 60 * 24 < Date.now();
 		// if updatedAt + 1 day is more than the current time, it means that the user has
 		// consecutively logged in 2 times in a row
-
-		// previous implementation was stupid as hell, also this doesnt seem like the best option
-		// to add a lastLogin date attribute would be wiser
 
 		if (resetStreak) {
 			console.log('reset');
 			userData.activeStreak = 0;
+			userData.lastLogin = new Date(Date.now());
 		} else if (continueStreak) {
 			console.log('increase');
-			userData.activeStreak = userData.activeStreak + 1;
+			userData.activeStreak += 1;
+			userData.lastLogin = new Date(Date.now());
 		}
 
 		await userData.save();

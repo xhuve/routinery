@@ -1,7 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 
-export type WorkoutDocument = User & Document;
+export type UserDocument = User & Document;
+
+export interface UserWithDates extends UserDocument {
+	updatedAt: Date;
+	createdAt: Date;
+}
 
 @Schema({ timestamps: true })
 export class User {
@@ -26,9 +31,8 @@ export class User {
 	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }] })
 	myWorkouts: Types.ObjectId[];
 
-	updatedAt: Date;
-
-	createdAt: Date;
+	@Prop({ default: new Date(Date.now()) })
+	lastLogin: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
