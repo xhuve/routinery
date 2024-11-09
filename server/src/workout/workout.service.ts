@@ -37,7 +37,6 @@ export class WorkoutService {
 	}
 
 	async getUserWorkouts(pageNumber: number, userId: string) {
-		console.log(userId);
 		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
 		if (!mongoose.Types.ObjectId.isValid(userId)) {
 			throw new Error('Invalid user ID format');
@@ -45,7 +44,7 @@ export class WorkoutService {
 
 		const workoutPagination = await this.userModel
 			.findById({ _id: userId })
-			.populate('myWorkouts')
+			.populate(['myWorkouts'])
 			.limit(pageLimit)
 			.skip(pageLimit * pageNumber);
 

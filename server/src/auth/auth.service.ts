@@ -20,7 +20,6 @@ export class AuthService {
 	}
 
 	async validateUser(userDetails: { username: string; password: string }) {
-		console.log('🚀 ~ AuthService ~ validateUser ~ userDetails:', userDetails);
 		const user = await this.userService.getUserByUsername(userDetails.username);
 		const isCorrectPassword = await bcrypt.compare(
 			userDetails.password,

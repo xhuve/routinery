@@ -29,7 +29,6 @@ export class WorkoutController {
 		pageNumber: number,
 	) {
 		const workouts = await this.workoutService.getAllWorkouts(pageNumber);
-		console.log(workouts);
 
 		return workouts;
 	}
@@ -48,8 +47,6 @@ export class WorkoutController {
 				pageNumber,
 				userId,
 			);
-
-			console.log(workouts);
 
 			return workouts;
 		} catch (error) {

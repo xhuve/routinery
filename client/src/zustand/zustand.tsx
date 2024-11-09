@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { create } from 'zustand';
 
 interface userDetails {
@@ -11,12 +12,24 @@ interface userDetails {
 
 interface StoreState {
 	user: userDetails | null;
+	isLoading: boolean;
 	setUser: (userDetails: userDetails) => void;
+	authenticatedUser: () => Promise<void>;
 	removeUser: () => void;
 }
 
 export const userStore = create<StoreState>()((set) => ({
 	user: null,
+	isLoading: true,
+	authenticatedUser: async () => {
+		try {
+			const response = await axios.get('/api/auth/me');
+			set({ user: response.data, isLoading: false });
+		} catch (error) {
+			console.log(error);
+			set({ isLoading: false });
+		}
+	},
 	setUser: (userDetails: userDetails) => set({ user: userDetails }),
 	removeUser: () => set({ user: null }),
 }));
