@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import workoutPlaceholder from '../assets/workout-placeholder.jpg';
+import WorkoutTable from '../components/WorkoutTable';
 
 interface Workout {
 	_id: string;
 	name: string;
+	creator: string;
 	durationInMinutes: number;
 	status: 'Pending' | 'Completed' | 'Cancelled';
 	startTime: string;
@@ -17,13 +19,15 @@ const WorkoutScreen = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [pages, setPages] = useState(1);
-	const [activePage, setActivePage] = useState(0);
 	const [workouts, setWorkouts] = useState<Workout[]>([]);
 	const pageNumber = searchParams.get('pageNumber');
+	const [activePage, setActivePage] = useState(
+		pageNumber ? parseInt(pageNumber) : 0,
+	);
 
 	const handleWorkoutRequest = () => {
 		let requestURL = '/api/workout/user?';
-		if (pageNumber) requestURL = requestURL + `pageNumber=${pageNumber}`;
+		if (pageNumber) requestURL += `pageNumber=${pageNumber}`;
 
 		axios
 			.get(requestURL)
@@ -45,82 +49,41 @@ const WorkoutScreen = () => {
 	return isLoading ? (
 		<Loader />
 	) : (
-		<div className="container mx-auto p-4">
-			<h2 className="text-4xl font-bold text-center mt-3">My Workouts</h2>
-			<div className="rounded-xl justify-center w-full p-2">
-				{workouts?.length == 0 ? (
-					<h2 className="text-2xl font-bold my-5">No workouts found</h2>
+		<div className="flex flex-col p-4">
+			<header className="flex justify-between items-center mb-4">
+				<h2 className="text-4xl ml-2 font-bold">My Workouts</h2>
+				<Link to="/create-workout" className="btn btn-primary">
+					Create a Workout
+				</Link>
+			</header>
+			<div className="rounded-xl w-full p-2 flex flex-col">
+				{workouts.length === 0 ? (
+					<h2 className="text-2xl font-bold text-center my-5">
+						No workouts found
+					</h2>
 				) : (
-					<div className="flex flex-col gap-4">
-						<table className="table">
-							<thead className="bg-gray-50">
-								<tr>
-									<th></th>
-									<th>Name</th>
-									<th>Duration</th>
-									<th>Status</th>
-									<td className="text-right">
-										<Link
-											to="/create-workout"
-											className="btn btn-sm btn-primary"
-										>
-											Create a Workout
-										</Link>
-									</td>
-								</tr>
-							</thead>
-							<tbody>
-								{workouts?.map((workout) => (
-									<tr key={workout.name}>
-										<td>
-											<img
-												className="w-16 object-cover rounded"
-												src={workoutPlaceholder}
-												alt=""
-											/>
-										</td>
-										<td>{workout.name}</td>
-										<td>{workout.durationInMinutes} minutes</td>
-										<td
-											className={`mt-8 badge ${
-												workout.status === 'Pending'
-													? 'badge-warning'
-													: workout.status === 'Completed'
-													? 'badge-success'
-													: 'badge-error'
-											}`}
-										>
-											{workout.status}
-										</td>
-										<td className="space-x-2">
-											<button className="text-white btn btn-success">
-												Edit
-											</button>
-											<button className="text-white btn btn-error">
-												Delete
-											</button>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-
+					<>
+						<WorkoutTable
+							workouts={workouts}
+							placeholder={workoutPlaceholder}
+						/>
 						<div className="join self-center">
 							{[...Array(pages).keys()].map((x) => (
 								<a
-									className={`join-item btn ${
+									className={`join-item btn  ${
 										activePage == x ? 'btn-active' : ''
 									}`}
 									onClick={() => {
 										setActivePage(x);
-										setSearchParams({ pageNumber: x.toString() });
+										searchParams.set('pageNumber', x.toString());
+										setSearchParams(searchParams);
 									}}
 								>
 									{x}
 								</a>
 							))}
 						</div>
-					</div>
+					</>
 				)}
 			</div>
 		</div>

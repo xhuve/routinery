@@ -10,7 +10,6 @@ import AddExerciseToWorkoutButton from '../components/AddExerciseToWorkoutButton
 const ExerciseScreen = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [exercises, setExercises] = useState([]);
-	const [activePage, setActivePage] = useState(0);
 	const [type, setActiveType] = useState('All');
 	const [width, setWidth] = useState(window.innerWidth);
 	const [pages, setPages] = useState(0);
@@ -18,6 +17,9 @@ const ExerciseScreen = () => {
 	const workoutExercises = exerciseStore((state) => state.exercises);
 	const exerciseType = searchParams.get('type');
 	const pageNumber = searchParams.get('pageNumber');
+	const [activePage, setActivePage] = useState(
+		pageNumber ? parseInt(pageNumber) : 0,
+	);
 	const addingToWorkout = searchParams.get('workout');
 
 	useEffect(() => {
@@ -92,40 +94,44 @@ const ExerciseScreen = () => {
 					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
 						{exercises.map(
 							(exercise: { _id: string; name: string; type: string }) => (
-								<div className="card bg-base-100 w-54 md:w-60 shadow-lg flex">
-									{addingToWorkout &&
-									workoutExercises?.includes(exercise._id) ? (
-										<div className="badge badge-primary badge-lg self-end absolute top-2 right-2">
-											{workoutExercises.indexOf(exercise._id) + 1}
-										</div>
-									) : null}
-									<figure>
-										<img
-											className="image-full"
-											src={exercisePlaceholder}
-											alt="exercise"
-										/>
-									</figure>
-									<div className="card-body">
-										<h2 className="card-title">{exercise.name}</h2>
-										<div className="card-body p-0">
-											<p>Type: {exercise.type}</p>
-											<a className="font-semibold underline">More details</a>
-										</div>
-										<div className="card-actions align-bottom">
-											{addingToWorkout &&
-												(!workoutExercises?.includes(exercise._id) ? (
-													<AddExerciseToWorkoutButton
-														exerciseId={exercise._id}
-													/>
-												) : (
-													<RemoveExerciseFromWorkoutButton
-														exerciseId={exercise._id}
-													/>
-												))}
+								<>
+									<div className="card bg-base-100  w-54 md:w-60 shadow-lg">
+										<figure>
+											<img
+												className="image-full"
+												src={exercisePlaceholder}
+												alt="exercise"
+											/>
+										</figure>
+										<div className="card-body">
+											<div className="card-title flex justify-between">
+												<h2>{exercise.name}</h2>
+												{addingToWorkout &&
+												workoutExercises?.includes(exercise._id) ? (
+													<div className="w-7 h-7 rounded-full text-sm flex justify-center items-center bg-primary text-white">
+														{workoutExercises.indexOf(exercise._id) + 1}
+													</div>
+												) : null}
+											</div>
+											<div className="card-body p-0">
+												<p>Type: {exercise.type}</p>
+												<a className="font-semibold underline">More details</a>
+											</div>
+											<div className="card-actions align-bottom">
+												{addingToWorkout &&
+													(!workoutExercises?.includes(exercise._id) ? (
+														<AddExerciseToWorkoutButton
+															exerciseId={exercise._id}
+														/>
+													) : (
+														<RemoveExerciseFromWorkoutButton
+															exerciseId={exercise._id}
+														/>
+													))}
+											</div>
 										</div>
 									</div>
-								</div>
+								</>
 							),
 						)}
 					</div>

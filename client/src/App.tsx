@@ -6,12 +6,12 @@ import { userStore } from './zustand/zustand';
 import Loader from './components/Loader';
 
 function App() {
-	const authenticatedUser = userStore((state) => state.authenticatedUser);
+	const authenticateUser = userStore((state) => state.authenticateUser);
 	const isLoading = userStore((state) => state.isLoading);
 
 	useEffect(() => {
-		authenticatedUser();
-	}, [authenticatedUser]);
+		authenticateUser();
+	}, [authenticateUser]);
 
 	if (isLoading) return <Loader />;
 

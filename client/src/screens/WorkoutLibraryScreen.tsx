@@ -21,8 +21,10 @@ const WorkoutLibraryScreen = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [activePage, setActivePage] = useState(0);
 	const pageNumber = searchParams.get('pageNumber');
+	const [activePage, setActivePage] = useState(
+		pageNumber ? parseInt(pageNumber) : 0,
+	);
 
 	useEffect(() => {
 		const fetchWorkouts = async () => {
