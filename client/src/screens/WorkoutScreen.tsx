@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import workoutPlaceholder from '../assets/workout-placeholder.jpg';
 import WorkoutTable from '../components/WorkoutTable';
+import toast from 'react-hot-toast';
 
 interface Workout {
 	_id: string;
@@ -42,6 +43,13 @@ const WorkoutScreen = () => {
 			});
 	};
 
+	const handleDelete = (workoutId: string) => {
+		axios.delete(`/api/workout/${workoutId}`).then((res) => {
+			toast.success('Workout deleted successfully');
+			handleWorkoutRequest();
+		});
+	};
+
 	useEffect(() => {
 		handleWorkoutRequest();
 	}, [searchParams]);
@@ -66,6 +74,7 @@ const WorkoutScreen = () => {
 						<WorkoutTable
 							workouts={workouts}
 							placeholder={workoutPlaceholder}
+							handleDelete={handleDelete}
 						/>
 						<div className="join self-center">
 							{[...Array(pages).keys()].map((x) => (

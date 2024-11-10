@@ -96,8 +96,8 @@ export class WorkoutService {
 		return await workout.save();
 	}
 
-	async deleteWorkout(id: string) {
-		await this.workoutModel.deleteOne({ _id: id });
+	async deleteWorkout(_id: string) {
+		await this.workoutModel.deleteOne({ _id });
 	}
 
 	async updateWorkout(workoutId: string, workoutData: CreateWorkoutDto) {

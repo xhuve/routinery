@@ -16,6 +16,7 @@ import ExerciseScreen from './screens/ExerciseScreen.tsx';
 import WorkoutScreen from './screens/WorkoutScreen.tsx';
 import { CreateWorkoutScreen } from './screens/CreateWorkoutScreen.tsx';
 import WorkoutLibraryScreen from './screens/WorkoutLibraryScreen.tsx';
+import EditWorkoutScreen from './screens/EditWorkoutScreen.tsx';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -28,6 +29,10 @@ const router = createBrowserRouter(
 				<Route path="/exercises" element={<ExerciseScreen />} />
 				<Route path="/workouts" element={<WorkoutScreen />} />
 				<Route path="/workout-library" element={<WorkoutLibraryScreen />} />
+				<Route
+					path="/edit-workout/:workoutId"
+					element={<EditWorkoutScreen />}
+				/>
 			</Route>
 		</Route>,
 	),

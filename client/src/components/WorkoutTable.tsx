@@ -14,11 +14,13 @@ interface Workout {
 interface WorkoutTableProps {
 	workouts: Workout[];
 	placeholder: string;
+	handleDelete: (workoutId: string) => void;
 }
 
 const WorkoutTable: React.FC<WorkoutTableProps> = ({
 	workouts,
 	placeholder,
+	handleDelete,
 }) => (
 	<table className="min-w-full table-auto">
 		<thead className="bg-gray-50">
@@ -68,7 +70,12 @@ const WorkoutTable: React.FC<WorkoutTableProps> = ({
 								>
 									Edit
 								</Link>
-								<button className="btn btn-error text-white">Delete</button>
+								<button
+									className="btn btn-error text-white"
+									onClick={() => handleDelete(workout._id)}
+								>
+									Delete
+								</button>
 							</div>
 						</td>
 					)}

@@ -7,6 +7,7 @@ import {
 	Param,
 	ParseIntPipe,
 	Post,
+	Put,
 	Query,
 	Req,
 	UseGuards,
@@ -62,6 +63,14 @@ export class WorkoutController {
 	@Post()
 	async createWorkout(@Body() CreateWorkoutDto: CreateWorkoutDto) {
 		return await this.workoutService.createWorkout(CreateWorkoutDto);
+	}
+
+	@Put(':workoutId')
+	async updateWorkout(
+		@Param('workoutId') workoutId: string,
+		@Body() workoutData: CreateWorkoutDto,
+	) {
+		return await this.workoutService.updateWorkout(workoutId, workoutData);
 	}
 
 	@Delete(':workoutId')
