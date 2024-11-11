@@ -57,7 +57,7 @@ export class WorkoutController {
 
 	@Get(':workoutId')
 	async getWorkoutById(@Param('workoutId') workoutId: string) {
-		return await this.workoutService.getWorkoutsById([workoutId]);
+		return await this.workoutService.getWorkoutById(workoutId);
 	}
 
 	@Post()

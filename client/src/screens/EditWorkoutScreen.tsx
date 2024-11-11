@@ -34,7 +34,8 @@ const EditWorkoutScreen = () => {
 			axios
 				.get(`/api/workout/${workoutId}`)
 				.then((res) => {
-					const workoutData = res.data[0];
+					const workoutData = res.data;
+					console.log('workoutdata------', res);
 					setWorkout(workoutData);
 					setFormData({
 						name: workoutData.name,

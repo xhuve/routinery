@@ -9,8 +9,6 @@ import {
 	Post,
 } from '@nestjs/common';
 import { CreateCommentDto } from './dtos/CreateCommentDto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { ApiTags } from '@nestjs/swagger';
 import { CommentService } from './comment.service';
 

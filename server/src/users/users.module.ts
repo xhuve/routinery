@@ -8,7 +8,6 @@ import { WorkoutModule } from 'src/workout/workout.module';
 @Module({
 	imports: [
 		MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-		WorkoutModule,
 	],
 	controllers: [UsersController],
 	providers: [UsersService],

@@ -9,12 +9,18 @@ import { CommentModule } from './comment/comment.module';
 import { AuthModule } from './auth/auth.module';
 import * as cookieParser from 'cookie-parser';
 import { ValidationPipe } from '@nestjs/common';
+declare const module: any;
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule, {});
 
 	app.use(cookieParser());
 	app.useGlobalPipes(new ValidationPipe());
+
+	if (module.hot) {
+		module.hot.accept();
+		module.hot.dispose(() => app.close());
+	}
 
 	const config = new DocumentBuilder()
 		.setTitle('Workout app')

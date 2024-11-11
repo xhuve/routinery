@@ -19,8 +19,8 @@ import { Workout, WorkoutSchema } from './mongoose/entities/Workout';
 		ConfigModule.forRoot(),
 		MongooseModule.forRoot(process.env.MONGO_URI),
 		MongooseModule.forFeature([
-			{ name: Exercise.name, schema: ExerciseSchema },
-			{ name: Workout.name, schema: WorkoutSchema },
+			{ name: 'Exercise', schema: ExerciseSchema },
+			{ name: 'Workout', schema: WorkoutSchema },
 		]),
 		WorkoutModule,
 		UsersModule,

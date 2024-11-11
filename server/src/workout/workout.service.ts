@@ -3,9 +3,10 @@ import { Workout } from 'src/mongoose/entities/Workout';
 import { CreateWorkoutDto } from './dtos/CreateWorkoutDto';
 import { Exercise } from 'src/mongoose/entities/Exercise';
 import { Comment } from 'src/mongoose/entities/Comment';
-import mongoose, { Model } from 'mongoose';
+import mongoose, { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from 'src/mongoose/entities/User';
+import { find } from 'rxjs';
 
 @Injectable()
 export class WorkoutService {
@@ -48,8 +49,6 @@ export class WorkoutService {
 			.skip(pageLimit * pageNumber)
 			.populate(['exercises', 'comments']);
 
-		console.log(workoutPagination);
-
 		const totalWorkouts = await this.workoutModel.countDocuments({
 			$or: [{ creator: userId }, { creator: null }],
 		});
@@ -60,40 +59,49 @@ export class WorkoutService {
 		};
 	}
 
-	getWorkoutsById(workoutIds: string[]) {
-		return this.workoutModel.find({ _id: { $in: workoutIds } });
+	async getWorkoutById(workoutId: string) {
+		const workout = await this.workoutModel.findById(workoutId).populate({
+			path: 'exercises',
+			model: 'Exercise', // Explicitly specify the model
+		});
+
+		console.log(
+			'Workout before population:',
+			await this.workoutModel.findById(workoutId).lean(),
+		);
+		console.log('Populated workout:', workout);
+
+		return workout;
 	}
 
 	async createWorkout(newWorkout: CreateWorkoutDto) {
+		const exerciseIds = newWorkout.exercises.map(
+			(id) => new Types.ObjectId(id),
+		);
+
 		const exercises = await this.exerciseModel.find({
-			_id: {
-				$in: newWorkout.exercises,
-			},
+			_id: { $in: exerciseIds },
 		});
 
-		const currentUser = await this.userModel
-			.findOne({ _id: newWorkout.creator })
-			.populate(['myWorkouts']);
-
-		const comments = await this.commentModel.find({
-			_id: { $in: newWorkout.comments || [] },
-		});
-
-		newWorkout.durationInMinutes = exercises.reduce((acc, curr) => {
-			return acc + curr.length;
-		}, 0);
+		if (exercises.length !== exerciseIds.length) {
+			throw new Error('One or more exercises not found');
+		}
 
 		const workout = await this.workoutModel.create({
 			...newWorkout,
-			exercises,
-			comments,
-			creator: currentUser._id,
+			exercises: exerciseIds,
 		});
 
+		const currentUser = await this.userModel.findById(newWorkout.creator);
 		currentUser.myWorkouts.unshift(workout._id);
 		await currentUser.save();
 
-		return await workout.save();
+		await this.exerciseModel.updateMany(
+			{ _id: { $in: exerciseIds } },
+			{ $push: { workouts: workout._id } },
+		);
+
+		return workout;
 	}
 
 	async deleteWorkout(_id: string) {

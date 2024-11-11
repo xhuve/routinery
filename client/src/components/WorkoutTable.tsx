@@ -29,9 +29,7 @@ const WorkoutTable: React.FC<WorkoutTableProps> = ({
 				<th className="px-4 py-2 text-center">Name</th>
 				<th className="px-4 py-2 text-center">Duration</th>
 				<th className="px-4 py-2 text-center">Status</th>
-				{workouts.some((x) => x.creator) && (
-					<th className="px-4 py-2 text-center">Actions</th>
-				)}
+				<th className="px-4 py-2 text-center">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -61,24 +59,29 @@ const WorkoutTable: React.FC<WorkoutTableProps> = ({
 							{workout.status}
 						</span>
 					</td>
-					{workout.creator && (
-						<td className="px-4 py-2 text-center">
-							<div className="flex justify-center space-x-2">
-								<Link
-									to={`/edit-workout/${workout._id}`}
-									className="btn mx-1 btn-success text-white"
-								>
-									Edit
-								</Link>
-								<button
-									className="btn btn-error text-white"
-									onClick={() => handleDelete(workout._id)}
-								>
-									Delete
-								</button>
-							</div>
-						</td>
-					)}
+					<td className="px-4 py-2 text-center">
+						<div className="flex justify-center space-x-2">
+							<Link to={`/start-workout/${workout._id}`} className="btn">
+								Start
+							</Link>
+							{workout.creator && (
+								<>
+									<Link
+										to={`/edit-workout/${workout._id}`}
+										className="btn mx-1 btn-success text-white"
+									>
+										Edit
+									</Link>
+									<button
+										className="btn btn-error text-white"
+										onClick={() => handleDelete(workout._id)}
+									>
+										Delete
+									</button>
+								</>
+							)}
+						</div>
+					</td>
 				</tr>
 			))}
 		</tbody>

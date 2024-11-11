@@ -2,278 +2,105 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Workout, WorkoutDocument } from 'src/mongoose/entities/Workout';
+import { Exercise, ExerciseDocument } from 'src/mongoose/entities/Exercise';
 
 @Injectable()
 export class WorkoutSeeder {
 	constructor(
 		@InjectModel(Workout.name) private workoutModel: Model<WorkoutDocument>,
+		@InjectModel(Exercise.name) private exerciseModel: Model<ExerciseDocument>,
 	) {}
+
+	async createExerciseMap() {
+		const exercises = await this.exerciseModel.find().exec();
+		const exerciseMap = new Map();
+
+		exercises.forEach((exercise) => {
+			exerciseMap.set(exercise.name, exercise._id);
+		});
+
+		return exerciseMap;
+	}
 
 	async seedWorkout() {
 		try {
 			const count = await this.workoutModel.countDocuments();
 			if (count > 0) return;
 
+			const exerciseMap = await this.createExerciseMap();
 			const workoutSeedData = [
 				{
-					name: 'Morning Cardio Blast',
-					durationInMinutes: 45,
+					name: 'Full Body Strength',
+					durationInMinutes: 60,
 					startTime: new Date('2024-11-05T06:00:00Z'),
 					status: 'Pending',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId()],
+					exercises: [
+						'Push Up',
+						'Squat',
+						'Bench Press',
+						'Deadlift',
+						'Pull Up',
+					].map((name) => exerciseMap.get(name)),
+					comments: [],
 				},
 				{
-					name: 'Strength Training Circuit',
-					durationInMinutes: 60,
+					name: 'Cardio Circuit',
+					durationInMinutes: 45,
 					startTime: new Date('2024-11-05T18:00:00Z'),
 					status: 'Completed',
 					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
+						'Running',
+						'Jump Rope',
+						'Burpees',
+						'Mountain Climbers',
+						'High Knees',
+					].map((name) => exerciseMap.get(name)),
 					comments: [],
 				},
 				{
-					name: 'Evening Yoga Session',
-					durationInMinutes: 30,
+					name: 'Upper Body Focus',
+					durationInMinutes: 50,
 					startTime: new Date('2024-11-06T20:00:00Z'),
-					status: 'Cancelled',
-					exercises: [new Types.ObjectId()],
-					comments: [new Types.ObjectId(), new Types.ObjectId()],
+					status: 'Pending',
+					exercises: [
+						'Push Up',
+						'Bench Press',
+						'Shoulder Press',
+						'Tricep Dip',
+						'Bicep Curl',
+					].map((name) => exerciseMap.get(name)),
+					comments: [],
 				},
 				{
-					name: 'HIIT Power Hour',
-					durationInMinutes: 60,
+					name: 'Flexibility & Recovery',
+					durationInMinutes: 40,
 					startTime: new Date('2024-11-07T07:30:00Z'),
 					status: 'Pending',
 					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
+						'Static Stretching',
+						'Dynamic Stretching',
+						'Hamstring Stretch',
+						'Hip Flexor Stretch',
+						'Shoulder Stretch',
+					].map((name) => exerciseMap.get(name)),
 					comments: [],
 				},
 				{
-					name: 'Full Body Stretch',
-					durationInMinutes: 20,
+					name: 'Lower Body Power',
+					durationInMinutes: 55,
 					startTime: new Date('2024-11-07T10:00:00Z'),
 					status: 'Completed',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Lunchtime Core Workout',
-					durationInMinutes: 30,
-					startTime: new Date('2024-11-07T12:00:00Z'),
-					status: 'Pending',
 					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
+						'Squat',
+						'Deadlift',
+						'Lunges',
+						'Calf Stretch',
+						'Box Jump',
+					].map((name) => exerciseMap.get(name)),
 					comments: [],
-				},
-				{
-					name: 'Evening Relaxation Yoga',
-					durationInMinutes: 45,
-					startTime: new Date('2024-11-07T19:00:00Z'),
-					status: 'Cancelled',
-					exercises: [new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Upper Body Strength',
-					durationInMinutes: 50,
-					startTime: new Date('2024-11-08T08:00:00Z'),
-					status: 'Completed',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Quick Morning Routine',
-					durationInMinutes: 15,
-					startTime: new Date('2024-11-08T06:30:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Full-Body Cardio',
-					durationInMinutes: 60,
-					startTime: new Date('2024-11-09T09:00:00Z'),
-					status: 'Pending',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [],
-				},
-				{
-					name: 'Power Lifting Session',
-					durationInMinutes: 90,
-					startTime: new Date('2024-11-09T15:00:00Z'),
-					status: 'Completed',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Evening Cardio Burnout',
-					durationInMinutes: 40,
-					startTime: new Date('2024-11-09T18:30:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Advanced Yoga Flow',
-					durationInMinutes: 75,
-					startTime: new Date('2024-11-10T07:00:00Z'),
-					status: 'Completed',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId(), new Types.ObjectId()],
-				},
-				{
-					name: 'Dynamic Strength Training',
-					durationInMinutes: 55,
-					startTime: new Date('2024-11-10T17:00:00Z'),
-					status: 'Cancelled',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [],
-				},
-				{
-					name: 'Morning Meditation & Stretch',
-					durationInMinutes: 25,
-					startTime: new Date('2024-11-11T06:15:00Z'),
-					status: 'Completed',
-					exercises: [],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Afternoon Mobility Session',
-					durationInMinutes: 40,
-					startTime: new Date('2024-11-11T13:00:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Evening Bootcamp',
-					durationInMinutes: 60,
-					startTime: new Date('2024-11-11T18:30:00Z'),
-					status: 'Completed',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Late Night Yoga',
-					durationInMinutes: 30,
-					startTime: new Date('2024-11-12T22:00:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Circuit Training',
-					durationInMinutes: 45,
-					startTime: new Date('2024-11-12T10:30:00Z'),
-					status: 'Cancelled',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [],
-				},
-				{
-					name: 'Cardio & Strength Combo',
-					durationInMinutes: 70,
-					startTime: new Date('2024-11-13T08:00:00Z'),
-					status: 'Completed',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId(), new Types.ObjectId()],
-				},
-				{
-					name: 'High-Intensity Core',
-					durationInMinutes: 35,
-					startTime: new Date('2024-11-14T07:00:00Z'),
-					status: 'Pending',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [],
-				},
-				{
-					name: 'Recovery and Mobility',
-					durationInMinutes: 40,
-					startTime: new Date('2024-11-14T15:30:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Endurance Training',
-					durationInMinutes: 90,
-					startTime: new Date('2024-11-15T08:00:00Z'),
-					status: 'Pending',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [],
-				},
-				{
-					name: 'Functional Fitness',
-					durationInMinutes: 50,
-					startTime: new Date('2024-11-15T16:00:00Z'),
-					status: 'Pending',
-					exercises: [new Types.ObjectId(), new Types.ObjectId()],
-					comments: [],
-				},
-				{
-					name: 'Weekend Warriors Workout',
-					durationInMinutes: 75,
-					startTime: new Date('2024-11-16T09:00:00Z'),
-					status: 'Pending',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [new Types.ObjectId()],
-				},
-				{
-					name: 'Weekend',
-					durationInMinutes: 75,
-					creator: new Types.ObjectId('671b6e722940dccfe17fda67'),
-					startTime: new Date('2024-11-16T09:00:00Z'),
-					status: 'Pending',
-					exercises: [
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-						new Types.ObjectId(),
-					],
-					comments: [new Types.ObjectId()],
 				},
 			];
-			this.workoutModel.insertMany(workoutSeedData);
+			await this.workoutModel.insertMany(workoutSeedData);
 		} catch (error) {
 			console.log(error);
 		}

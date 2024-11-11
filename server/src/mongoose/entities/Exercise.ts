@@ -17,9 +17,6 @@ export class Exercise {
 
 	@Prop({ default: null })
 	length: number;
-
-	@Prop({ type: [{ type: Types.ObjectId, ref: 'Workout' }], required: false })
-	workouts: Types.ObjectId[];
 }
 
 export const ExerciseSchema = SchemaFactory.createForClass(Exercise);

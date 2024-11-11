@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { CommentController } from './comment.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { Workout, WorkoutSchema } from 'src/mongoose/entities/Workout';
 import { Comment, CommentSchema } from 'src/mongoose/entities/Comment';
 import { CommentService } from './comment.service';

@@ -44,7 +44,7 @@ const WorkoutScreen = () => {
 	};
 
 	const handleDelete = (workoutId: string) => {
-		axios.delete(`/api/workout/${workoutId}`).then((res) => {
+		axios.delete(`/api/workout/${workoutId}`).then(() => {
 			toast.success('Workout deleted successfully');
 			handleWorkoutRequest();
 		});

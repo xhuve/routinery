@@ -6,10 +6,7 @@ import { WorkoutService } from 'src/workout/workout.service';
 
 @Injectable()
 export class UsersService {
-	constructor(
-		@InjectModel(User.name) private userModel: Model<User>,
-		private readonly workoutService: WorkoutService,
-	) {}
+	constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
 	getUsers() {
 		return this.userModel.find();
