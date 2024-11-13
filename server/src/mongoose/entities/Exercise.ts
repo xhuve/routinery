@@ -16,7 +16,7 @@ export class Exercise {
 	type: string;
 
 	@Prop({ default: null })
-	length: number;
+	durationInMinutes: number;
 }
 
 export const ExerciseSchema = SchemaFactory.createForClass(Exercise);

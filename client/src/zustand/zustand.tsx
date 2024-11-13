@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axios/axiosConfig';
 import { create } from 'zustand';
 
 interface userDetails {

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axios/axiosConfig';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loader from '../components/Loader';
@@ -34,9 +34,9 @@ const WorkoutScreen = () => {
 			.get(requestURL)
 			.then((res) => {
 				console.log(res);
-				setLoading(false);
-				setPages(Math.ceil(res.data.totalWorkouts / 10));
 				setWorkouts(res.data.workouts);
+				setPages(Math.ceil(res.data.totalWorkouts / 10));
+				setLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -65,7 +65,7 @@ const WorkoutScreen = () => {
 				</Link>
 			</header>
 			<div className="rounded-xl w-full p-2 flex flex-col">
-				{workouts.length === 0 ? (
+				{workouts?.length == 0 ? (
 					<h2 className="text-2xl font-bold text-center my-5">
 						No workouts found
 					</h2>

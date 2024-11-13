@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 const HomePage = ({
 	user,
 }: {
-	user: { username: string; activeStreak: number };
+	user: {
+		myWorkouts: string[];
+		username: string;
+		activeStreak: number;
+	};
 }) => {
 	return (
 		<div className="justify-center bg-base-200 h-full">
@@ -57,7 +61,7 @@ const HomePage = ({
 				<div className="stats shadow mx-auto max-w-6xl my-6">
 					<div className="stat">
 						<div className="stat-title">Total Workouts</div>
-						<div className="stat-value">0</div>
+						<div className="stat-value">{user?.myWorkouts.length}</div>
 					</div>
 
 					<div className="stat">

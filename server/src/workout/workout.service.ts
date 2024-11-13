@@ -13,7 +13,6 @@ export class WorkoutService {
 	constructor(
 		@InjectModel(Workout.name) private workoutModel: Model<Workout>,
 		@InjectModel(Exercise.name) private exerciseModel: Model<Exercise>,
-		@InjectModel(Comment.name) private commentModel: Model<Comment>,
 		@InjectModel(User.name) private userModel: Model<User>,
 	) {}
 
@@ -43,15 +42,27 @@ export class WorkoutService {
 		}
 
 		const pageLimit = parseInt(process.env.PAGINATION_LIMIT);
+
+		console.log({
+			pageNumber,
+			pageLimit,
+			skipAmount: pageLimit * pageNumber,
+			userId,
+		});
+
 		const workoutPagination = await this.workoutModel
-			.find({ creator: { $in: [new mongoose.Types.ObjectId(userId), null] } })
+			.find({ creator: { $in: [userId, null] } })
 			.limit(pageLimit)
 			.skip(pageLimit * pageNumber)
-			.populate(['exercises', 'comments']);
+			.populate('exercises');
+
+		console.log('Found workouts:', workoutPagination.length);
 
 		const totalWorkouts = await this.workoutModel.countDocuments({
 			$or: [{ creator: userId }, { creator: null }],
 		});
+
+		console.log('Total workouts:', totalWorkouts);
 
 		return {
 			workouts: workoutPagination,
@@ -59,17 +70,11 @@ export class WorkoutService {
 		};
 	}
 
-	async getWorkoutById(workoutId: string) {
-		const workout = await this.workoutModel.findById(workoutId).populate({
+	getWorkoutById(workoutId: string) {
+		const workout = this.workoutModel.findById(workoutId).populate({
 			path: 'exercises',
-			model: 'Exercise', // Explicitly specify the model
+			model: 'Exercise',
 		});
-
-		console.log(
-			'Workout before population:',
-			await this.workoutModel.findById(workoutId).lean(),
-		);
-		console.log('Populated workout:', workout);
 
 		return workout;
 	}

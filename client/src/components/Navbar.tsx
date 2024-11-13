@@ -15,7 +15,7 @@ const Navbar = () => {
 			.get('api/auth/logout', { withCredentials: true })
 			.then((res) => {
 				console.log(res);
-				toast.success(res.data);
+				toast.success('Logged out successfully!');
 				removeUser();
 			})
 			.catch((err) => console.log(err));

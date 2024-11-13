@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import mongoose, { Model, ObjectId } from 'mongoose';
+import { Model } from 'mongoose';
 import { User } from 'src/mongoose/entities/User';
-import { WorkoutService } from 'src/workout/workout.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -38,26 +38,34 @@ export class UsersService {
 		return newUser.save();
 	}
 
-	updateUser(
+	async updateUser(
 		userId: string,
 		userDetails: {
 			username: string;
 			password: string;
+			newPassword: string;
 			email: string;
-			myWorkouts: string[] | null;
+			profilePicture: string;
+			gender: string;
 		},
 	) {
-		if (userDetails.myWorkouts) {
-			const ObjectIDWorkouts = userDetails.myWorkouts.map(
-				(x) => new mongoose.Types.ObjectId(x),
-			);
-
-			return this.userModel.findOneAndUpdate(
-				{ _id: userId },
-				{ ...userDetails, myWorkouts: ObjectIDWorkouts },
-			);
+		const user = await this.getUserById(userId);
+		if (userDetails.newPassword) {
+			if (!(await bcrypt.compare(userDetails.password, user.password))) {
+				throw new HttpException(
+					'Passwords arent matching',
+					HttpStatus.BAD_REQUEST,
+				);
+			}
+			user.password = await bcrypt.hash(userDetails.newPassword, 10);
 		}
-		return this.userModel.findOneAndUpdate({ _id: userId }, { ...userDetails });
+
+		user.username = userDetails.username;
+		user.email = userDetails.email;
+		user.profilePicture = userDetails.profilePicture;
+		user.gender = userDetails.gender;
+
+		return await user.save();
 	}
 
 	async deleteUser(id: string) {

@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../axios/axiosConfig';
 import toast from 'react-hot-toast';
 import { userStore } from '../zustand/zustand';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegisterScreen = () => {
 	const [registerForm, setRegisterForm] = useState({});
 	const setUser = userStore((state) => state.setUser);
+	const navigate = useNavigate();
 
 	const handleInputChanges = (e: {
 		target: { value: string; name: string };
@@ -14,23 +15,20 @@ const RegisterScreen = () => {
 		setRegisterForm((form) => ({ ...form, [e.target.name]: e.target.value }));
 	};
 
-	const submitHandler = (e: any) => {
+	const submitHandler = async (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log(registerForm);
-		axios
-			.post('/api/auth/register', registerForm)
-			.then((res) => {
-				console.log(res);
-				toast.success('Successfully registered!');
-				setUser(res.data);
-			})
-			.catch((err) => {
-				const err_msg = Array.isArray(err?.response?.data?.message)
-					? err?.response?.data?.message[0]
-					: err?.response?.data?.message || err.message;
-				toast.error(err_msg);
-				console.log(err);
-			});
+		try {
+			const res = await axios.post('/api/auth/register', registerForm);
+			toast.success('Successfully registered!');
+			setUser(res.data);
+			navigate('/workouts');
+		} catch (err: any) {
+			const err_msg = Array.isArray(err?.response?.data?.message)
+				? err?.response?.data?.message[0]
+				: err?.response?.data?.message || err.message;
+			toast.error(err_msg);
+			console.log(err);
+		}
 	};
 
 	return (

@@ -15,7 +15,6 @@ import { LoginDto } from './dtos/LoginDto';
 import { Request, Response } from 'express';
 import { JwtPasswordStrategy } from './guards/passport-jwt.guard';
 import { UsersService } from 'src/users/users.service';
-import { UserWithDates } from 'src/mongoose/entities/User';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -31,9 +30,12 @@ export class AuthController {
 		@Res({ passthrough: true })
 		response: Response,
 	) {
+		console.log('entering');
 		const { newUser, accessToken } =
 			await this.authService.register(userDetails);
-		response.cookie('user_token', accessToken);
+		response.cookie('user_token', accessToken, {
+			httpOnly: true,
+		});
 
 		return newUser;
 	}
@@ -45,6 +47,7 @@ export class AuthController {
 		@Res({ passthrough: true }) response: Response,
 	) {
 		const { accessToken, user } = await this.authService.login(userDetails);
+		console.log(accessToken);
 		response.cookie('user_token', accessToken);
 		return user;
 	}
@@ -53,7 +56,7 @@ export class AuthController {
 	@UseGuards(JwtPasswordStrategy)
 	logout(@Res({ passthrough: true }) response: Response) {
 		response.cookie('user_token', '', { httpOnly: true, expires: new Date(0) });
-		return response.send('Logged out successfully');
+		return { message: 'Logged out successfully' };
 	}
 
 	@Get('me')

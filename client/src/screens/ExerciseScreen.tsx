@@ -6,6 +6,8 @@ import exercisePlaceholder from '../assets/exercise-placeholder.jpg';
 import { exerciseStore } from '../zustand/zustand';
 import RemoveExerciseFromWorkoutButton from '../components/RemoveExerciseFromWorkoutButton';
 import AddExerciseToWorkoutButton from '../components/AddExerciseToWorkoutButton';
+import ExercisesCard from '../components/ExercisesCard';
+import Popup from 'reactjs-popup';
 
 const ExerciseScreen = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -52,9 +54,9 @@ const ExerciseScreen = () => {
 		console.log(workoutExercises);
 	}, [searchParams]);
 
-	return isLoading ? (
-		<Loader />
-	) : (
+	if (isLoading) return <Loader />;
+
+	return (
 		<div className="w-full h-full">
 			<h2 className="text-4xl font-bold mt-3">
 				<div className="text-center">Exercises</div>
@@ -90,12 +92,18 @@ const ExerciseScreen = () => {
 						)}
 					</ul>
 				) : null}
+				{/* <ExercisesCard /> */}
 				<div className="flex flex-col gap-7 w-full">
-					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+					<div className="md:ml-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
 						{exercises.map(
-							(exercise: { _id: string; name: string; type: string }) => (
+							(exercise: {
+								_id: string;
+								name: string;
+								type: string;
+								durationInMinutes: number;
+							}) => (
 								<>
-									<div className="card bg-base-100  w-54 md:w-60 shadow-lg">
+									<div className="card bg-base-100 shadow-lg">
 										<figure>
 											<img
 												className="image-full"
@@ -115,7 +123,16 @@ const ExerciseScreen = () => {
 											</div>
 											<div className="card-body p-0">
 												<p>Type: {exercise.type}</p>
-												<a className="font-semibold underline">More details</a>
+												<Popup
+													trigger={
+														<a className="font-semibold underline cursor-pointer">
+															More details
+														</a>
+													}
+													position="top center"
+												>
+													<ExercisesCard workoutExercise={exercise} />
+												</Popup>
 											</div>
 											<div className="card-actions align-bottom">
 												{addingToWorkout &&

@@ -1,5 +1,5 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsArray, IsDate, IsEmail, IsString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsString } from 'class-validator';
 
 export class UpdateUserDto {
 	@ApiProperty()
@@ -10,9 +10,14 @@ export class UpdateUserDto {
 	email: string;
 	@ApiProperty()
 	@IsString()
+	newPassword: string;
+	@ApiProperty()
+	@IsString()
 	password: string;
-	@IsDate()
-	createdAt: Date;
-	@IsArray()
-	myWorkouts: string[];
+	@ApiProperty()
+	@IsString()
+	profilePicture: string;
+	@ApiProperty()
+	@IsString()
+	gender: string;
 }

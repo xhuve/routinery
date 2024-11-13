@@ -1,10 +1,17 @@
+import { useEffect } from 'react';
 import { userStore } from '../zustand/zustand';
 import { Navigate, Outlet } from 'react-router-dom';
 
 const PrivateRoute = () => {
-	const userInfo = userStore((state) => state.user);
+	const { user, isLoading, authenticateUser } = userStore();
 
-	return userInfo ? <Outlet /> : <Navigate to={'/login'} replace />;
+	useEffect(() => {
+		if (!user && !isLoading) {
+			authenticateUser();
+		}
+	}, []);
+
+	return user ? <Outlet /> : <Navigate to={'/login'} replace />;
 };
 
 export default PrivateRoute;

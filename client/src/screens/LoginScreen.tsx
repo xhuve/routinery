@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from '../axios/axiosConfig';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { userStore } from '../zustand/zustand';
+import toast from 'react-hot-toast';
 
 const LoginScreen = () => {
 	const [loginForm, setLoginForm] = useState({});
-	const nav = useNavigate();
 	const setUser = userStore((state) => state.setUser);
 
 	const handleInputChanges = (e: any) => {
@@ -17,8 +17,9 @@ const LoginScreen = () => {
 		axios
 			.post('/api/auth/login', loginForm)
 			.then((res) => {
+				console.log(res);
+				toast.success('Successfully logged in!');
 				setUser(res.data);
-				nav('/');
 			})
 			.catch((err) => console.log(err));
 	};

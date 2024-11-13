@@ -43,6 +43,7 @@ export class WorkoutController {
 		pageNumber: number,
 	) {
 		try {
+			console.log(request.user);
 			const { userId } = request.user as { userId: string };
 			const workouts = await this.workoutService.getUserWorkouts(
 				pageNumber,

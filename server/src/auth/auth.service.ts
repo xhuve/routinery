@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
@@ -15,7 +15,6 @@ export class AuthService {
 			sub: user.id,
 			username: user.username,
 		};
-
 		return await this.jwtService.signAsync(tokenPayload);
 	}
 
@@ -50,7 +49,7 @@ export class AuthService {
 			...userDetails,
 			password,
 		});
-		const accessToken = this.signJwtToken({
+		const accessToken = await this.signJwtToken({
 			id: newUser._id.toString(),
 			username: newUser.username,
 		});

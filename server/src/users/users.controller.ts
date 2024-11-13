@@ -28,11 +28,13 @@ export class UsersController {
 		return await this.userService.getUsers();
 	}
 
+	@UseGuards(JwtPasswordStrategy)
 	@Put(':id')
 	async updateUserById(
 		@Param('id') id: string,
 		@Body() updateUserDto: UpdateUserDto,
 	) {
+		console.log(updateUserDto);
 		await this.userService.updateUser(id, updateUserDto);
 	}
 
